@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 class HospitalService
 {
 
-    private $hospitalRepository;
+    private $hospitalRepository; // phpcs:ignore Zend.NamingConventions.ValidVariableName.PrivateNoUnderscore
 
     public function __construct(HospitalRepository $hospitalRepository)
     {
