@@ -53,7 +53,7 @@ class BookingTransactionRepository
     }
 
     // cek apakah boking jadwalnya ada atau tidak ada
-    public function isTimeSlotAvailable(int $doctorId, string $date, string $time)
+    public function isTimeSlotTakenForDoctor(int $doctorId, string $date, string $time)
     {
         return BookingTransaction::where('doctor_id', $doctorId)
             ->where('started_at', $date)
