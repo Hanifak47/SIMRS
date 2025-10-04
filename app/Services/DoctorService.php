@@ -18,8 +18,7 @@ class DoctorService
     public function __construct(
         DoctorRepository $doctorRepository,
         HospitalSpecialistRepository $hospitalSpecialistRepository
-    ) 
-    {
+    ) {
         $this->doctorRepository = $doctorRepository;
         $this->hospitalSpecialistRepository = $hospitalSpecialistRepository;
     }
@@ -66,7 +65,7 @@ class DoctorService
         // saat membuat dokter maka pastikan bahwa memang ada rumah sakitnya dan meamng ada spesialisasinya
         // ini untuk menangani inject langsung di html demi keamnanan
         if (
-            !$this->hospitalSpecialistRepository->existsForHospitalAndSpecialist( 
+            !$this->hospitalSpecialistRepository->existsForHospitalAndSpecialist(
                 $data['hospital_id'],
                 $data['specialist_id']
             )
@@ -119,5 +118,46 @@ class DoctorService
         }
     }
 
+    public function filterBySpecialAndHospital(int $hospitalId, int $specialistId) // phpcs:ignore Generic.Files.LineLength.TooLong
+    {
+        return $this->doctorRepository->filterBySpecialistAndHospital($hospitalId, $specialistId);
+    }
 
+    public function getAvailableSlots(int $doctorId)
+    {
+        $doctor = $this->doctorRepository->getById($doctorId);
+
+        // hanya bisa booking untuk h-1 untul h-3
+        $dates = collect([
+            now()->addDays(1)->startOfDay(), //jika tgl bookinnya adalah besok
+            now()->addDays(2)->startOfDay(), // besok lusa
+            now()->addDays(3)->startOfDay(), // besok lusa + 1
+        ]);
+
+        // waktu pesanan yg tersedia
+        $timeSlots = ['10:30', '11:30', '13:30', '14:30', '15:30', '16:30'];
+
+        $availability = [];
+
+        foreach ($dates as $date) {
+
+            $daterstr = $date->toDateString();
+            $availability = [$daterstr] = [];
+
+            foreach ($timeSlots as $timeSlot) {
+                // cek di db apakah ada transaksi di waktu dan t
+                $isTaken = $doctor->bookingTransactions()
+                    ->whereDate('started_at', $daterstr)
+                    ->whereTime('time_at', $timeSlot)
+                    ->exists();
+
+                if (!$isTaken) {
+                    $availability[$daterstr][] = $timeSlot;
+                }
+            }
+
+            return $availability;
+        }
+
+    }
 }
