@@ -28,7 +28,7 @@ class DoctorService
         return $this->doctorRepository->getAll($fields);
     }
 
-    public function getById(int $id, array $fields)
+    public function getById(int $id, array $fields = ['*'])
     {
         return $this->doctorRepository->getById($id, $fields);
     }
