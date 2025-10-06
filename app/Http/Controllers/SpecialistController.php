@@ -13,7 +13,7 @@ class SpecialistController extends Controller
 
     private $specialistService; // phpcs:ignore Zend.NamingConventions.ValidVariableName.PrivateNoUnderscore
 
-    public function _construct(SpecialistService $specialistService)
+    public function __construct(SpecialistService $specialistService)
     {
         $this->specialistService = $specialistService;
     }

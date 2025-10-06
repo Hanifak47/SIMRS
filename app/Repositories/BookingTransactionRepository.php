@@ -34,7 +34,7 @@ class BookingTransactionRepository
         return BookingTransaction::where('user_id', $userId)
             ->with(['doctor', 'doctor.hospital', 'doctor.specialist'])
             ->latest()
-            ->paginate(10);
+            ->paginate(50);
         ;
     }
 
