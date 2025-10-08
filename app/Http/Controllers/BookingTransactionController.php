@@ -3,22 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\TransactionResource;
-use App\Models\BookingTransaction;
+use App\Services\BookingTransactionService;
+// use App\Models\BookingTransaction;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
+// ini dari sudut pandang manager saat merubah status pesanan
 class BookingTransactionController extends Controller
 {
     //
     private $bookingTransactionService;
 
-    public function __construct(BookingTransaction $bookingTransactionService)
+    public function __construct(BookingTransactionService $bookingTransactionService)
     {
         $this->bookingTransactionService = $bookingTransactionService;
     }
 
     public function index()
     {
+        // dd('tampan');
         // $transaction = $this->bookingTransactionService->
         $transaction = $this->bookingTransactionService->getAll();
         return response()->json(TransactionResource::collection($transaction));

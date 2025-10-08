@@ -13,7 +13,7 @@ class HospitalRepository
 
     public function getById(int $id, array $fields = ['*'])
     {
-        return Hospital::select($fields)->with(['doctors.specialist', 'specialists'])->findOrFail($id);
+        return Hospital::select($fields)->with(['doctors.specialists', 'specialists'])->findOrFail($id);
     }
 
     public function create(array $data)

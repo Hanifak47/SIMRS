@@ -19,7 +19,7 @@ class HospitalSpecialistController extends Controller
     public function attach(Request $request, int $hospitalId)
     {
         $request->validate([
-            'specialist_id' => 'required|exists:specialist,id'
+            'specialist_id' => 'required|exists:specialists,id'
         ]);
 
         $this->hospitalService->attachSpecialist($hospitalId, $request->input('specialist_id'));
@@ -28,7 +28,7 @@ class HospitalSpecialistController extends Controller
     }
 
 
-    public function dettach(int $hospitalId, int $specialistId){
+    public function detach(int $hospitalId, int $specialistId){
         $this->hospitalService->detachSpecialist($hospitalId, $specialistId);
         return response()->json(['message' => 'Specialist berhasil dilepas']);
     }

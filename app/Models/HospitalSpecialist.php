@@ -11,6 +11,8 @@ class HospitalSpecialist extends Model
     //
     use SoftDeletes;
 
+    public $timestamps = true;
+
     protected $fillable = [
         'hospital_id',
         'specialist_id',

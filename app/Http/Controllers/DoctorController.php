@@ -38,7 +38,7 @@ class DoctorController extends Controller
 
     public function store(DoctorRequest $request)
     {
-        $doctor = $this->doctorService->create($request->validate());
+        $doctor = $this->doctorService->create($request->validated());
         return response()->json(new DoctorResource($doctor), 201);
     }
 
@@ -54,6 +54,9 @@ class DoctorController extends Controller
 
     public function destroy(int $id)
     {
+
+        // dd("saya tampan");
+
         try {
             $this->doctorService->delete($id);
             return response()->json(['message' => 'Doctor deleted successfully']);

@@ -11,7 +11,7 @@ class DoctorRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,31 @@ class DoctorRequest extends FormRequest
      */
     public function rules(): array
     {
+        $id = $this->route('doctor'); // Mengambil ID dokter dari rute
+
         return [
-            //
+            // Name harus unik di tabel doctors, tapi diabaikan untuk ID dokter saat ini ($id)
+            'name' => 'required|string|unique:doctors,name,' . $id,
+
+            // Photo wajib jika method adalah POST (create), jika tidak (PUT/PATCH) sifatnya optional (sometimes)
+            'photo' => $this->isMethod('post')
+                ? 'required|image|max:2048'
+                : 'sometimes|image|max:2048',
+
+            // About wajib dan harus string
+            'about' => 'required|string',
+
+            // Year of Experience (yoe) wajib, harus integer, dan minimal 0
+            'yoe' => 'required|integer|min:0',
+
+            // specialist_id wajib dan harus ada di tabel specialists kolom id
+            'specialist_id' => 'required|exists:specialists,id',
+
+            // hospital_id wajib dan harus ada di tabel hospitals kolom id
+            'hospital_id' => 'required|exists:hospitals,id',
+
+            // gender wajib dan nilainya hanya boleh Male atau Female
+            'gender' => 'required|in:Male,Female',
         ];
     }
 }

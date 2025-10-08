@@ -27,8 +27,8 @@ class HospitalResource extends JsonResource
             'phone' => $this->phone,
 
             // hitung doktor dan specialist dari rs ini
-            'doctor_count' => $this->doctor->count(),
-            'specialist_count' => $this->specialist->count(),
+            'doctor_count' => $this->doctors->count(),
+            'specialist_count' => $this->specialists->count(),
 
             // tampilkan list doctor dan specialist dari rs ini
             'doctors' => DoctorResource::collection($this->whenLoaded('doctors')),

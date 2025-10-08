@@ -142,7 +142,7 @@ class DoctorService
         foreach ($dates as $date) {
 
             $daterstr = $date->toDateString();
-            $availability = [$daterstr] = [];
+            $availability[$daterstr] = [];
 
             foreach ($timeSlots as $timeSlot) {
                 // cek di db apakah ada transaksi di waktu dan t
@@ -156,8 +156,8 @@ class DoctorService
                 }
             }
 
-            return $availability;
         }
 
+        return $availability;
     }
 }

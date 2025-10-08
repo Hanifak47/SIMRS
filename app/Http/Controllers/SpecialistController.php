@@ -32,7 +32,7 @@ class SpecialistController extends Controller
         try {
             $specialist = $this->specialistService->getById($id);
             //    krn datanya tunggal maka hanya gunakan new
-            return response()->json(new SpecialistService($specialist));
+            return response()->json(new SpecialistResource($specialist));
         } catch (ModelNotFoundException $e) {
             return response()->json([ // phpcs:ignore PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket
                 'message' => 'Specialist tidak ditemukan'
@@ -62,6 +62,16 @@ class SpecialistController extends Controller
             return response()->json([
                 'message' => 'Specialist tidak ditemukan',
             ], 404);
+        }
+    }
+
+    public function destroy(int $id)
+    {
+        try {
+            $this->specialistService->delete($id);
+            return response()->json(['message' => 'Spesialis berhasil dihapus']);
+        } catch (ModelNotFoundException $e) {
+            return response()->json(['message' => 'Spesialis gagal dihapus']);
         }
     }
 }

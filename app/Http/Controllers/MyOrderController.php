@@ -26,14 +26,14 @@ class MyOrderController extends Controller
 
         // $user = Auth::user();
         // $userId = $user->id;
-        $order = $this->bookingTransactionService->getAllForUser(auth()->id);
+        $order = $this->bookingTransactionService->getAllForUser(auth()->id());
         return response()->json(TransactionResource::collection($order));
     }
 
     public function show(int $id)
     {
         try {
-            $order = $this->bookingTransactionService->getById($id, auth()->id);
+            $order = $this->bookingTransactionService->getById($id, auth()->id());
             return response()->json(new TransactionResource($order));
         } catch (ModelNotFoundException $e) {
             return response()->json(['message' => 'Pesanan tidak ditemukan'], 404);
@@ -42,10 +42,8 @@ class MyOrderController extends Controller
 
     public function store(BookingTransactionRequest $request)
     {
-        $transaction = $this->service->create($request->validated());
+        $transaction = $this->bookingTransactionService->create($request->validated());
         return response()->json(new TransactionResource($transaction), 201);
     }
-
-
 
 }

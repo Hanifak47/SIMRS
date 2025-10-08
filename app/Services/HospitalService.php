@@ -109,10 +109,10 @@ class HospitalService
         // 2. Kaitkan (attach) Specialist ke Hospital menggunakan relasi many-to-many.
         // syncWithoutDetaching memastikan Spesialis ditambahkan jika belum ada,
         // dan TIDAK menghapus Spesialis lain yang sudah terhubung.
-        $hospital->specialists()->syncWithoutDetaching($specialistId);
+        $hospital->specialists()->syncWithoutDetaching([$specialistId => ['created_at' => now()]]);
     }
 
-    
+
     // menghapus pivot tabel jika ada, jika tidaka ada ya tidak apa apa
     public function detachSpecialist(int $hospitalId, int $specialistId)
     {

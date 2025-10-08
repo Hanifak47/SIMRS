@@ -3,7 +3,7 @@
 namespace App\Services;
 
 use Illuminate\Http\UploadedFile;
-use App\Models\BookingTransaction;
+// use App\Models\BookingTransaction;
 use App\Repositories\DoctorRepository;
 use Dotenv\Exception\ValidationException;
 use App\Repositories\BookingTransactionRepository;
@@ -15,16 +15,17 @@ class BookingTransactionService
     private $doctorRepository; // phpcs:ignore Zend.NamingConventions.ValidVariableName.PrivateNoUnderscore
 
     public function __construct(
-        BookingTransaction $bookingTransaction,
+        BookingTransactionRepository $bookingTransactionRepository,
         DoctorRepository $doctorRepository
     ) { // phpcs:ignore Generic.Functions.OpeningFunctionBraceBsdAllman.BraceOnSameLine
-        $this->bookingTransactionRepository = $bookingTransaction;
+        $this->bookingTransactionRepository = $bookingTransactionRepository;
         $this->doctorRepository = $doctorRepository;
     }
 
     // manager services
     public function getAll()
     {
+        // dd('tampan');
         return $this->bookingTransactionRepository->getAll();
     }
 
