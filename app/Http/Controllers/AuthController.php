@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 use App\Services\AuthService;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\RegisterRequest;
 
@@ -49,5 +51,10 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
 
         return response()->json(['message' => 'Logged out successfully']);
+    }
+
+    public function user(Request $request)
+    {
+        return response()->json(new UserResource($request->user()));
     }
 }
