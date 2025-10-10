@@ -21,6 +21,7 @@ class AuthRepository
             'password' => Hash::make($data['password']),
         ]);
 
+        // perlu semacam ini karena menggunakan spatie
         $user->assignRole('customer');
 
         return $user->load('roles');

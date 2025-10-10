@@ -6,7 +6,7 @@ use App\Repositories\DoctorRepository;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use App\Repositories\HospitalSpecialistRepository;
-use Dotenv\Exception\ValidationException;
+use Illuminate\Validation\ValidationException;
 
 class DoctorService
 {

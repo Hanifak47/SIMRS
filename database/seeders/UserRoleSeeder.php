@@ -41,7 +41,7 @@ class UserRoleSeeder extends Seeder
             $user = User::factory()->create([
                 'name' => ucfirst($roleName) . ' User',
                 'gender' => fake()->randomElement(['Male', 'Female']),
-                'email' => $roleName . '@bwa.com',
+                'email' => $roleName . '@gmail.com',
                 'phone' => fake()->phoneNumber(),
                 'photo' => fake()->imageUrl(200, 200, 'people', true, 'profile'),
                 'password' => Hash::make('rahasiabro'), // Default password

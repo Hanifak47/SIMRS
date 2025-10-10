@@ -16,6 +16,7 @@ class AuthController extends Controller
 
     public function __construct(AuthService $authService)
     {
+        // dd("asas");
         $this->authService = $authService;
     }
 
@@ -30,6 +31,7 @@ class AuthController extends Controller
 
     public function login(LoginRequest $request)
     {
+        // dd("asas");
         return $this->authService->login($request->validated());
     }
 

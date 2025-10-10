@@ -41,11 +41,13 @@ class BookingTransactionRepository
     // for user
     public function getById(int $id, int $userId)
     {
-        return BookingTransaction::where('id', $id)
-            ->where('user_id', $userId)
-            ->with(['doctor', 'doctor.hospital', 'doctor.specialist'])
-            ->findOrFail();
+        return BookingTransaction::with(['doctor.hospital', 'doctor.specialist'])
+            ->where([ // phpcs:ignore PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket
+                ['id', '=', $id],
+                ['user_id', '=', $userId],
+            ])->firstOrFail();
     }
+
 
     public function create(array $data)
     {

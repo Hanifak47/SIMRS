@@ -32,6 +32,7 @@ class MyOrderController extends Controller
 
     public function show(int $id)
     {
+        // dd($id);
         try {
             $order = $this->bookingTransactionService->getById($id, auth()->id());
             return response()->json(new TransactionResource($order));

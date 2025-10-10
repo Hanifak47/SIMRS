@@ -1,4 +1,4 @@
-<?
+<?php
 
 namespace App\Services;
 
@@ -11,6 +11,8 @@ class AuthService
 
     public function __construct(AuthRepository $authRepository)
     {
+        
+        // dd("asnaskjk");
         $this->authRepository = $authRepository;
     }
 
@@ -25,6 +27,7 @@ class AuthService
 
     public function login(array $data)
     {
+        // dd("asnaskjk");
         return $this->authRepository->login($data);
     }
 
