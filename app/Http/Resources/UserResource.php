@@ -22,6 +22,7 @@ class UserResource extends JsonResource
             'email' => $this->email,
             'phone' => $this->phone,
             'photo' => $this->photo,
+            'gender' => $this->gender,
             'roles' => $this->roles->pluck('name') // ✅ return role names as an array
         ];
     }

@@ -24,7 +24,7 @@ Route::post('login', [AuthController::class, 'login']);
 // menu user dan logout berlaku untuk seluruh role
 Route::middleware('auth:sanctum')->group(function () { // phpcs:ignore PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket
     Route::post('logout', [AuthController::class, 'logout']);
-    Route::post('user', [AuthController::class, 'user']);
+    Route::get('user', [AuthController::class, 'user']);
 });
 
 // 

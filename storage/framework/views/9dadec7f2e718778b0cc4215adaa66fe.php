@@ -1,0 +1,1 @@
+hanif joss<?php /**PATH C:\Users\62812\Documents\LARAVEL FUNDAMENTAL\LARAVEL SIMRS\simrs\resources\views/welcome.blade.php ENDPATH**/ ?>

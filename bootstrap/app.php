@@ -13,7 +13,8 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void { // phpcs:ignore PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket
         //
-    
+        $middleware->statefulApi();
+
         $middleware->alias([ // phpcs:ignore PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket
             'role' => \Spatie\Permission\Middleware\RoleMiddleware::class,
             'permission' => \Spatie\Permission\Middleware\PermissionMiddleware::class,

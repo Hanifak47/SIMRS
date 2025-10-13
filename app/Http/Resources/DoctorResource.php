@@ -14,6 +14,23 @@ class DoctorResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
-        return parent::toArray($request);
+        return [
+            // Atribut dasar (sesuai yang Anda pilih di Controller)
+            'id' => $this->id,
+            'name' => $this->name, // Nama dokter
+            'photo' => $this->photo,
+            'yoe' => $this->yoe,
+            'specialist_id' => $this->specialist_id,
+            'hospital_id' => $this->hospital_id,
+
+            // ATTRIBUTE HOSPITAL BARU:
+            // Menggunakan whenLoaded() untuk memastikan relationship sudah di-eager load 
+            // di Repository (seperti yang kita perbaiki sebelumnya).
+            // Jika Anda memiliki HospitalResource, gunakan:
+            // 'hospital' => $this->whenLoaded('hospital', new HospitalResource($this->hospital)),
+
+            // Jika Anda belum memiliki HospitalResource, gunakan ini untuk mengirimkan objek penuh hospital:
+            'hospital' => $this->whenLoaded('hospital'),
+        ];
     }
 }
