@@ -21,7 +21,7 @@ class SpecialistController extends Controller
     // method ini beri nama persis sperti dengan php artisan route:list
     public function index()
     {
-        $fields = ['id', 'name', 'photo', 'price'];
+        $fields = ['id', 'name', 'photo', 'price', 'updated_at'];
         $specialist = $this->specialistService->getAll($fields);
         //    krn datanya banyak maka pakai collection
         return response()->json(SpecialistResource::collection($specialist));

@@ -5,20 +5,50 @@ import { useFetchSpecialists } from "../../../hooks/useSpecialists";
 import { useFetchHospitals } from "../../../hooks/useHospitals";
 import { Link } from "react-router-dom";
 import UserProfileCard from "../../../components/UserProfileCard";
+// OverviewDashboard.tsx
+
+import { formatDate, formatDate2 } from '../../../utils/format';
+
+import { getLatestDateString } from '../../../utils/lastDate';
+
+// ... (kode komponen OverviewDashboard di bawah ini)
 import React from "react";
 
 function OverviewDashboard() {
+  // fetch data
   const { data: transactions } = useFetchTransactions();
   const { data: doctors } = useFetchDoctors();
   const { data: specialists } = useFetchSpecialists();
   const { data: hospitals } = useFetchHospitals();
+
+  // proses format
+  const sortedSpecialists = getLatestDateString(specialists, "updated_at");
+  const urut_specialist = sortedSpecialists
+    ? formatDate2(sortedSpecialists) // Panggil formatDate2 HANYA jika sortedSpecialists adalah string
+    : 'Loading...'; // Nilai default saat sortedSpecialists adalah undefined
+
+  const sortedDoctors = getLatestDateString(doctors, "updated_at");
+  const urut_dokter = sortedDoctors
+    ? formatDate2(sortedDoctors) // Panggil formatDate2 HANYA jika sortedSpecialists adalah string
+    : 'Loading...'; // Nilai default saat sortedSpecialists adalah undefined
+
+  const sortedTransactions = getLatestDateString(transactions, "updated_at");
+  const urut_transaksi = sortedTransactions
+    ? formatDate2(sortedTransactions) // Panggil formatDate2 HANYA jika sortedSpecialists adalah string
+    : 'Loading...'; // Nilai default saat sortedSpecialists adalah undefined
+
+
+  const sortedHospitals = getLatestDateString(hospitals, "updated_at");
+  const urut_hospital = sortedHospitals
+    ? formatDate2(sortedHospitals) // Panggil formatDate2 HANYA jika sortedSpecialists adalah string
+    : 'Loading...'; // Nilai default saat sortedSpecialists adalah undefined
 
   const totalRevenue =
     transactions?.reduce((acc, tx) => acc + tx.grand_total, 0) || 0;
 
   return (
     <div id="main-container" className="flex flex-1">
-      <Sidebar/>
+      <Sidebar />
       <div id="Content" className="flex flex-col flex-1 p-6 pt-0">
         <div
           id="Top-Bar"
@@ -35,7 +65,7 @@ function OverviewDashboard() {
                   className="size-6 flex shrink-0"
                   alt="icon"
                 />
-                {/* Tue, 26 April 2025 */}
+                {formatDate(new Date().toISOString())}
               </p>
             </div>
             <div className="flex items-center flex-nowrap gap-3">
@@ -74,7 +104,7 @@ function OverviewDashboard() {
           <UserProfileCard />
         </div>
         <main className="flex flex-col gap-5 flex-1">
-          <section className="grid grid-cols-2 gap-5">
+          <section className="grid grid-cols gap-5">
             <div className="flex flex-col rounded-3xl p-5 gap-8 blue-gradient">
               <div className="flex items-center gap-4">
                 <div className="flex size-14 rounded-full bg-monday-orange items-center justify-center">
@@ -84,7 +114,7 @@ function OverviewDashboard() {
                     alt="icon"
                   />
                 </div>
-                <p className="font-medium text-lg text-white">Total Revenue</p>
+                <p className="font-medium text-lg text-white">Total Pendapatan</p>
               </div>
               <div className="flex flex-col gap-3">
                 <p className="font-bold text-[36px] text-white">
@@ -92,27 +122,6 @@ function OverviewDashboard() {
                 </p>
                 <hr className="border-monday-stroke/20" />
                 <p className="font-medium text-lg text-white/60">
-                  Last Updated Today
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-col rounded-3xl p-5 gap-8 bg-white">
-              <div className="flex items-center gap-4">
-                <div className="flex size-14 rounded-full bg-monday-blue/10 items-center justify-center">
-                  <img
-                    src="/assets/images/icons/star-blue.svg"
-                    className="size-6"
-                    alt="icon"
-                  />
-                </div>
-                <p className="font-medium text-lg text-monday-gray">
-                  Total Testimonials
-                </p>
-              </div>
-              <div className="flex flex-col gap-3">
-                <p className="font-bold text-[36px]">320.500</p>
-                <hr className="border-monday-stroke" />
-                <p className="font-medium text-lg text-monday-gray">
                   Last Updated Today
                 </p>
               </div>
@@ -129,7 +138,7 @@ function OverviewDashboard() {
                   />
                 </div>
                 <p className="font-medium text-lg text-monday-gray">
-                  Total Doctors
+                  Total Dokter
                 </p>
               </div>
               <div className="flex flex-col gap-3">
@@ -138,7 +147,7 @@ function OverviewDashboard() {
                 </p>
                 <hr className="border-monday-stroke" />
                 <p className="font-medium text-lg text-monday-gray">
-                  Last Updated Today
+                  Terakhir diubah {urut_dokter}
                 </p>
               </div>
             </div>
@@ -152,7 +161,7 @@ function OverviewDashboard() {
                   />
                 </div>
                 <p className="font-medium text-lg text-monday-gray">
-                  Total Hospitals
+                  Total Rumah Sakit
                 </p>
               </div>
               <div className="flex flex-col gap-3">
@@ -161,7 +170,7 @@ function OverviewDashboard() {
                 </p>
                 <hr className="border-monday-stroke" />
                 <p className="font-medium text-lg text-monday-gray">
-                  Last Updated Today
+                  Terakhir diubah {urut_hospital}
                 </p>
               </div>
             </div>
@@ -175,7 +184,7 @@ function OverviewDashboard() {
                   />
                 </div>
                 <p className="font-medium text-lg text-monday-gray">
-                  Total Specialists
+                  Total Spesialis
                 </p>
               </div>
               <div className="flex flex-col gap-3">
@@ -184,7 +193,7 @@ function OverviewDashboard() {
                 </p>
                 <hr className="border-monday-stroke" />
                 <p className="font-medium text-lg text-monday-gray">
-                  Last Updated Today
+                  Terakhir diubah {urut_specialist}
                 </p>
               </div>
             </div>
@@ -205,7 +214,7 @@ function OverviewDashboard() {
                       />
                     </div>
                     <p className="font-medium text-lg text-monday-gray">
-                      Total Transactions
+                      Total Transaksi
                     </p>
                   </div>
                 </div>
@@ -214,7 +223,7 @@ function OverviewDashboard() {
                     {transactions?.length.toLocaleString("id")}
                   </p>
                   <p className="font-semibold text-lg text-monday-gray">
-                    Last Updated Today
+                    Terakhir diubah {urut_transaksi}
                   </p>
                 </div>
               </div>
@@ -224,7 +233,7 @@ function OverviewDashboard() {
                 className="flex flex-col px-5 gap-5 flex-1"
               >
                 <div className="flex items-center justify-between">
-                  <p className="font-semibold text-2xl">Recent Transactions</p>
+                  <p className="font-semibold text-2xl">Transaksi Terakhir</p>
                 </div>
 
                 {transactions && transactions.length > 0 ? (
@@ -277,12 +286,12 @@ function OverviewDashboard() {
                               alt="icon"
                             />
                             <p className="font-semibold text-lg text-nowrap">
-                            {transaction.doctor.hospital.name}
+                              {transaction.doctor.hospital.name}
                             </p>
                           </div>
                           <div className="flex items-center gap-4">
                             <Link to={`/admin/transactions/details/${transaction.id}`} className="btn btn-primary-opacity min-w-[130px] font-semibold">
-                              Details
+                              Detail
                             </Link>
                           </div>
                         </div>

@@ -25,6 +25,7 @@ class HospitalResource extends JsonResource
             'city' => $this->city,
             'post_code' => $this->post_code, // phpcs:ignore Zend.NamingConventions.ValidVariableName.NotCamelCaps
             'phone' => $this->phone,
+            'updated_at' => $this->updated_at,
 
             // hitung doktor dan specialist dari rs ini
             'doctor_count' => $this->doctors->count(),

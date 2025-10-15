@@ -22,6 +22,7 @@ class DoctorResource extends JsonResource
             'yoe' => $this->yoe,
             'specialist_id' => $this->specialist_id,
             'hospital_id' => $this->hospital_id,
+            'updated_at' => $this->updated_at,
 
             // ATTRIBUTE HOSPITAL BARU:
             // Menggunakan whenLoaded() untuk memastikan relationship sudah di-eager load 
