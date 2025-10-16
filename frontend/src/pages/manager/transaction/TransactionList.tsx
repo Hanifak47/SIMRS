@@ -6,8 +6,8 @@ import { formatDate } from "../../../utils/format";
 
 const TransactionList = () => {
   const { data: transactions, isPending } = useFetchTransactions();
-  if (isPending) return <p> loading transactions</p>;
-  if (!transactions) return <p> transactions notfound...</p>;
+  if (isPending) return <p> Menunggu Transaksi</p>;
+  if (!transactions) return <p> Transaksi Tidak Ditemukan...</p>;
 
   return (
     <div id="main-container" className="flex flex-1">
@@ -20,10 +20,10 @@ const TransactionList = () => {
           <div className="flex items-center gap-6 h-[102px] bg-white w-full rounded-3xl p-[18px]">
             <div className="flex flex-col gap-2 w-full">
               <h1 className="font-bold text-2xl capitalize">
-                Manage Transactions
+                Pengaturan Transaksi
               </h1>
               <p className="flex items-center gap-1 font-semibold text-monday-gray text-lg leading-none">
-                View &amp; Update Your Transactions Here
+                Lihat &amp; Perbarui Transaksimu Disini
               </p>
             </div>
             <div className="flex items-center flex-nowrap gap-3">
@@ -161,7 +161,7 @@ const TransactionList = () => {
                               {transaction.doctor.specialist.name}
                             </p>
                             <p className="font-medium text-monday-gray">
-                              Specialist Name
+                              Nama Spesialis
                             </p>
                           </div>
                         </div>
@@ -178,7 +178,7 @@ const TransactionList = () => {
                               {formatDate(transaction.started_at)}
                             </p>
                             <p className="font-medium text-monday-gray">
-                              Appointment Schedule
+                              Jadwal Temu
                             </p>
                           </div>
                         </div>
@@ -186,7 +186,7 @@ const TransactionList = () => {
                           to={`/admin/transactions/details/${transaction.id}`}
                           className="btn btn-primary-opacity min-w-[120px] font-semibold"
                         >
-                          Details
+                          Detail
                         </Link>
                       </div>
                     </div>
@@ -204,7 +204,7 @@ const TransactionList = () => {
                   />
                   <div className="flex flex-col gap-1 items-center text-center">
                     <p className="font-semibold text-monday-gray">
-                      Oops, you don't have any data yet
+                      Ups, Kamu Tidak Mempunyai Data
                     </p>
                   </div>
                 </div>

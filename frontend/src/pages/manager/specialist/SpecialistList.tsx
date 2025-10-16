@@ -8,7 +8,7 @@ import React from "react";
 
 const SpecialistList = () => {
   const { data: specialists, isPending } = useFetchSpecialists();
-  if (isPending) return <p>Loading specialists...</p>;
+  if (isPending) return <p>Tunggu Spesialis...</p>;
 
   return (
     <div id="main-container" className="flex flex-1">
@@ -21,10 +21,10 @@ const SpecialistList = () => {
           <div className="flex items-center gap-6 h-[102px] bg-white w-full rounded-3xl p-[18px]">
             <div className="flex flex-col gap-2 w-full">
               <h1 className="font-bold text-2xl capitalize">
-                Manage Specialists
+                Manajemen Spesialis
               </h1>
               <p className="flex items-center gap-1 font-semibold text-monday-gray text-lg leading-none">
-                View &amp; Update Your Specialist Here
+                Lihat &amp; Perbarui Spesialisasi Disini
               </p>
             </div>
             <div className="flex items-center flex-nowrap gap-3">
@@ -66,22 +66,21 @@ const SpecialistList = () => {
           <section className="flex flex-col gap-6 flex-1 rounded-[20px] p-5 px-0 bg-white">
             <div id="Header" className="flex items-center justify-between px-5">
               <div className="flex flex-col gap-2">
-                <p className="font-semibold text-xl">All Specialists</p>
+                <p className="font-semibold text-xl">Semua Spesialisasi</p>
                 <p className="flex items-center gap-1 font-semibold text-monday-gray text-lg leading-none">
                   <img
                     src="/assets/images/icons/stetoscop-grey.svg"
                     className="size-6"
                     alt="icon"
                   />
-                  {specialists && specialists.length.toLocaleString("id")} Total
-                  Specialists
+                  {specialists && specialists.length.toLocaleString("id")} Total Spesialis
                 </p>
               </div>
               <Link
                 to="/admin/specialists/create"
                 className="btn btn-primary font-semibold text-lg"
               >
-                Add New
+                Tambahkan Baru
                 <img
                   src="/assets/images/icons/add-white.svg"
                   className="flex sixe-6 shrink-0"
@@ -131,7 +130,7 @@ const SpecialistList = () => {
                           />
                           <p className="font-semibold text-lg text-nowrap">
                             {specialist.doctors.length.toLocaleString("id")}{" "}
-                            Doctors
+                            Dokter
                           </p>
                         </div>
                         <div className="flex items-center gap-4">
@@ -139,7 +138,7 @@ const SpecialistList = () => {
                             to={`/admin/specialists/details/${specialist.id}`}
                             className="btn btn-primary-opacity min-w-[120px] font-semibold"
                           >
-                            Details
+                            Detail
                           </Link>
                           <Link
                             to={`/admin/specialists/edit/${specialist.id}`}
@@ -150,7 +149,7 @@ const SpecialistList = () => {
                               className="flex size-6 shrink-0"
                               alt="icon"
                             />
-                            Edit
+                            Ubah
                           </Link>
                         </div>
                       </div>
@@ -170,10 +169,10 @@ const SpecialistList = () => {
                   />
                   <div className="flex flex-col gap-1 items-center text-center">
                     <p className="font-semibold text-monday-gray">
-                      Oops, you don't have any data yet
+                      Ups, Kamu tidak memiliki data
                     </p>
                     <a href="#" className="font-bold text-monday-blue">
-                      Create Now +
+                      Tambahkan Sekarang +
                     </a>
                   </div>
                 </div>

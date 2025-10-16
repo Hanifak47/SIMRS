@@ -8,8 +8,8 @@ const SpecialistDetails = () => {
   const { id } = useParams<{ id: string }>();
   const { data: specialist, isPending } = useFetchSpecialist(Number(id));
 
-  if (isPending) return <p>Loading specialist details...</p>;
-  if (!specialist) return <p> specialist notfound...</p>;
+  if (isPending) return <p>Tunggu Detail Specialist...</p>;
+  if (!specialist) return <p> Specialist Tidak Ditemukan...</p>;
 
   return (
     <div id="main-container" className="flex flex-1">
@@ -22,7 +22,7 @@ const SpecialistDetails = () => {
           <div className="flex items-center gap-6 h-[102px] bg-white w-full rounded-3xl p-[18px]">
             <div className="flex flex-col gap-2 w-full">
               <h1 className="font-bold text-2xl capitalize">
-                Specialist Details
+                Detail Specialist
               </h1>
               <Link to={`/admin/specialists/`}
                 className="flex items-center gap-1 font-semibold text-monday-gray text-lg leading-none"
@@ -122,7 +122,7 @@ const SpecialistDetails = () => {
                   className="flex size-6 shrink-0"
                   alt="icon"
                 />
-                Edit
+                Ubah
               </Link>
             </div>
           </section>
@@ -130,7 +130,7 @@ const SpecialistDetails = () => {
             id="Doctor-List"
             className="flex flex-col flex-1 shrink-0 rounded-[20px] p-5 gap-5 bg-white"
           >
-            <p className="header font-semibold text-xl">Doctors List</p>
+            <p className="header font-semibold text-xl">Daftar Dokter</p>
             {specialist.doctors && specialist.doctors.length > 0 ? (
               <div className="flex flex-col gap-5">
                 {specialist.doctors.map((doctor) => (
@@ -179,10 +179,10 @@ const SpecialistDetails = () => {
                             className="size-6"
                             alt="icon"
                           />
-                          {doctor.yoe} Years
+                          {doctor.yoe} Tahun
                         </p>
                         <p className="font-medium text-lg text-monday-gray leading-none">
-                          Experience
+                          Pengalaman
                         </p>
                       </div>
                       <div className="flex flex-col gap-2 w-[180px]">
@@ -199,7 +199,7 @@ const SpecialistDetails = () => {
                           {doctor.gender}
                         </p>
                         <p className="font-medium text-lg text-monday-gray leading-none">
-                          Gender
+                          Jenis Kelamin
                         </p>
                       </div>
                     </div>
@@ -218,7 +218,7 @@ const SpecialistDetails = () => {
                 />
                 <div className="flex flex-col gap-1 items-center text-center">
                   <p className="font-semibold text-monday-gray">
-                    Oops, you don't have any data yet
+                    Oops, kamu masih belum punya data
                   </p>
                 </div>
               </div>

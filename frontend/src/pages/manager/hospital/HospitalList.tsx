@@ -8,6 +8,8 @@ import UserProfileCard from "../../../components/UserProfileCard";
 const HospitalList = () => {
   const { data: hospitals, isPending } = useFetchHospitals(); 
 
+  console.log(hospitals);
+
   if (isPending) return <p>Loading hospitals...</p>;
   
   return (

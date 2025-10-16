@@ -68,7 +68,7 @@ const AddSpecialist = () => {
           <div className="flex items-center gap-6 h-[102px] bg-white w-full rounded-3xl p-[18px]">
             <div className="flex flex-col gap-2 w-full">
               <h1 className="font-bold text-2xl capitalize">
-                Add New Specialist
+                Buat Spesialisasi Baru
               </h1>
               <Link
                 to={`/admin/specialists/`}
@@ -79,7 +79,7 @@ const AddSpecialist = () => {
                   className="size-[18px] flex shrink-0"
                   alt="icon"
                 />
-                Manage Specialist
+                Manajemen Spesialis
               </Link>
             </div>
             <div className="flex items-center flex-nowrap gap-3">
@@ -123,11 +123,11 @@ const AddSpecialist = () => {
             className="flex flex-col w-full rounded-3xl p-5 gap-5 bg-white"
           >
             <h2 className="font-semibold text-xl capitalize">
-              Complete the form
+              Selesaikan Formnya
             </h2>
             <div className="flex items-center justify-between">
               <p className="font-medium text-lg text-monday-gray">
-                Upload Image
+                Unggah Gambar
               </p>
               <div className="flex items-center justify-between w-[500px]">
                 <div className="group relative flex size-[100px] p-[14px] rounded-2xl overflow-hidden items-center justify-center bg-monday-background">
@@ -163,8 +163,8 @@ const AddSpecialist = () => {
                   className="btn btn-black w-[152px] font-semibold text-nowrap"
                 >
                   {imagePreview !== "/assets/images/icons/gallery-grey.svg"
-                    ? "Change Photo"
-                    : "Add Photo"}
+                    ? "Ubah Foto"
+                    : "Tambahkan Foto"}
                 </button>
               </div>
             </div>
@@ -178,7 +178,7 @@ const AddSpecialist = () => {
 
             <div className="flex items-center justify-between">
               <p className="font-medium text-lg text-monday-gray">
-                Specialist Name
+                Nama Spesialis
               </p>
               <div className="group/errorState flex flex-col gap-2 invalid">
                 <label className="group relative w-[500px]">
@@ -190,16 +190,15 @@ const AddSpecialist = () => {
                     />
                   </div>
                   <p className="placeholder font-semibold text-monday-gray text-sm absolute -translate-y-1/2 left-[81px] top-[25px] group-has-[:placeholder-shown]:text-monday-black group-has-[:placeholder-shown]:text-lg group-has-[:placeholder-shown]:top-[36px] group-focus-within:top-[25px] transition-300">
-                    Enter Name
+                    Masukkan Nama
                   </p>
                   <input
                     type="text"
                     {...register("name")}
-                    className={`appearance-none w-full h-[72px] font-semibold text-lg rounded-3xl border-[2px] pl-20 pr-6 pb-[14.5px] pt-[34.5px] placeholder-shown:pt-[14.5px] focus:border-monday-black transition-300 ${
-                      errors.name
-                        ? "group-[&.invalid]/errorState:border-monday-red"
-                        : "border-monday-border"
-                    }`}
+                    className={`appearance-none w-full h-[72px] font-semibold text-lg rounded-3xl border-[2px] pl-20 pr-6 pb-[14.5px] pt-[34.5px] placeholder-shown:pt-[14.5px] focus:border-monday-black transition-300 ${errors.name
+                      ? "group-[&.invalid]/errorState:border-monday-red"
+                      : "border-monday-border"
+                      }`}
                     placeholder=""
                   />
                 </label>
@@ -215,7 +214,7 @@ const AddSpecialist = () => {
 
             <div className="flex items-center justify-between">
               <p className="font-medium text-lg text-monday-gray">
-                Specialist Price
+                Harga Spesialis
               </p>
               <div className="group/errorState flex flex-col gap-2 invalid">
                 <label className="group relative w-[500px]">
@@ -227,16 +226,15 @@ const AddSpecialist = () => {
                     />
                   </div>
                   <p className="placeholder font-semibold text-monday-gray text-sm absolute -translate-y-1/2 left-[81px] top-[25px] group-has-[:placeholder-shown]:text-monday-black group-has-[:placeholder-shown]:text-lg group-has-[:placeholder-shown]:top-[36px] group-focus-within:top-[25px] transition-300">
-                    Enter Price
+                    Masukkan Harga
                   </p>
                   <input
                     type="number"
                     {...register("price")}
                     className={`appearance-none w-full h-[72px] font-semibold text-lg rounded-3xl border-[2px] pl-20 pr-6 pb-[14.5px] pt-[34.5px] placeholder-shown:pt-[14.5px] focus:border-monday-black transition-300
-                      ${
-                        errors.price
-                          ? "group-[&.invalid]/errorState:border-monday-red"
-                          : "border-monday-border"
+                      ${errors.price
+                        ? "group-[&.invalid]/errorState:border-monday-red"
+                        : "border-monday-border"
                       }`}
                     placeholder=""
                   />
@@ -252,15 +250,14 @@ const AddSpecialist = () => {
             </div>
             <div className="flex items-center justify-between">
               <p className="font-medium text-lg text-monday-gray">
-                Specialist About
+                Tentang Spesialis
               </p>
               <div className="group/errorState flex flex-col gap-2 invalid">
                 <label
-                  className={`group flex py-4 px-6 rounded-3xl border-[2px] transition-300 w-[500px] ${
-                    errors.about
-                      ? "group-[&.invalid]/errorState:border-monday-red"
-                      : "border-monday-border"
-                  } focus-within:border-monday-black`}
+                  className={`group flex py-4 px-6 rounded-3xl border-[2px] transition-300 w-[500px] ${errors.about
+                    ? "group-[&.invalid]/errorState:border-monday-red"
+                    : "border-monday-border"
+                    } focus-within:border-monday-black`}
                 >
                   <div className="flex h-full pr-4 pt-2 border-r-[1.5px] border-monday-border ">
                     <img
@@ -271,8 +268,7 @@ const AddSpecialist = () => {
                   </div>
                   <div className="flex flex-col gap-[6px] pl-4 w-full">
                     <p className="placeholder font-semibold text-monday-gray text-sm group-has-[:placeholder-shown]:text-lg group-has-[:placeholder-shown]:text-monday-black transition-300">
-                      Enter Description
-                    </p>
+                      Masukkan Deskripsi                    </p>
                     <textarea
                       className="appearance-none outline-none w-full font-semibold text-lg leading-[160%]"
                       rows={3}
@@ -296,14 +292,14 @@ const AddSpecialist = () => {
                 to={`/admin/specialists/`}
                 className="btn btn-red font-semibold"
               >
-                Cancel
+                Batal
               </Link>
               <button
                 disabled={isPending}
                 type="submit"
                 className="btn btn-primary font-semibold rounded-full"
               >
-                {isPending ? "Saving..." : "Save Specialist"}
+                {isPending ? "Menyimpan..." : "Simpan Specialist"}
               </button>
             </div>
           </form>

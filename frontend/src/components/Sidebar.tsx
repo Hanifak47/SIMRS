@@ -20,24 +20,38 @@ const Sidebar = () => {
         {
           label: "Dashboard",
           path: "/admin/overview",
+          // active: [
+          //   "/admin/overview",
+          // ],
           iconBlack: "/assets/images/icons/home-black.svg",
           iconBlue: "/assets/images/icons/home-blue.svg",
         },
         {
           label: "Spesialisasi",
           path: "/admin/specialists",
+          // active: [
+          //   "/admin/specialists",
+          //   "/admin/specialists/edit",
+          //   "/admin/specialists/details",
+          // ],
           iconBlack: "/assets/images/icons/stetoscop-black.svg",
           iconBlue: "/assets/images/icons/stetoscop-blue.svg",
         },
         {
           label: "Rumah Sakit",
           path: "/admin/hospitals",
+          // active: [
+          //   "/admin/hospitals",
+          // ],
           iconBlack: "/assets/images/icons/hospital-black.svg",
           iconBlue: "/assets/images/icons/hospital-blue.svg",
         },
         {
           label: "Transaksi",
           path: "/admin/transactions",
+          // active: [
+          //   "/admin/transactions",
+          // ],
           iconBlack: "/assets/images/icons/note-2-black.svg",
           iconBlue: "/assets/images/icons/note-2-blue.svg",
         },
@@ -49,6 +63,9 @@ const Sidebar = () => {
         {
           label: "Dokter",
           path: "/admin/doctors",
+          // active: [
+          //   "/admin/doctors",
+          // ],
           iconBlack: "/assets/images/icons/profile-2user-black.svg",
           iconBlue: "/assets/images/icons/profile-2user-blue.svg",
         },
@@ -59,12 +76,18 @@ const Sidebar = () => {
             {
               label: "Role",
               path: "/admin/roles",
+              // active: [
+              //   "/admin/roles",
+              // ],
               iconBlack: "/assets/images/icons/profile-tick-black.svg",
               iconBlue: "/assets/images/icons/profile-tick-blue.svg",
             },
             {
               label: "Pengguna",
               path: "/admin/users",
+              // active: [
+              //   "/admin/users",
+              // ],
               iconBlack: "/assets/images/icons/profile-black.svg",
               iconBlue: "/assets/images/icons/profile-blue.svg",
             },
@@ -73,6 +96,9 @@ const Sidebar = () => {
         {
           label: "Pengaturan",
           path: "/admin/settings",
+          // active: [
+          //   "/admin/settings",
+          // ],
           iconBlack: "/assets/images/icons/setting-black.svg",
           iconBlue: "/assets/images/icons/setting-black.svg",
         },
@@ -116,9 +142,8 @@ const Sidebar = () => {
                           </p>
                           <img
                             src="/assets/images/icons/arrow-circle-up.svg"
-                            className={`size-6 transition-300 ${
-                              isOpen ? "rotate-180" : ""
-                            }`}
+                            className={`size-6 transition-300 ${isOpen ? "rotate-180" : ""
+                              }`}
                             alt="icon"
                           />
                         </button>
@@ -139,9 +164,8 @@ const Sidebar = () => {
                                 return (
                                   <li
                                     key={child.label}
-                                    className={`group ${
-                                      isChildActive ? "active" : ""
-                                    }`}
+                                    className={`group ${isChildActive ? "active" : ""
+                                      }`}
                                   >
                                     <Link
                                       to={child.path}
@@ -150,36 +174,32 @@ const Sidebar = () => {
                                       <div className="relative flex size-6 shrink-0">
                                         <img
                                           src={child.iconBlack}
-                                          className={`size-6 absolute ${
-                                            isChildActive
-                                              ? "opacity-0"
-                                              : "opacity-100"
-                                          } transition-300`}
+                                          className={`size-6 absolute ${isChildActive
+                                            ? "opacity-0"
+                                            : "opacity-100"
+                                            } transition-300`}
                                           alt="icon"
                                         />
                                         <img
                                           src={child.iconBlue}
-                                          className={`size-6 absolute ${
-                                            isChildActive
-                                              ? "opacity-100"
-                                              : "opacity-0"
-                                          } transition-300`}
+                                          className={`size-6 absolute ${isChildActive
+                                            ? "opacity-100"
+                                            : "opacity-0"
+                                            } transition-300`}
                                           alt="icon"
                                         />
                                       </div>
                                       <p
-                                        className={`font-medium transition-300 w-full ${
-                                          isChildActive
-                                            ? "text-monday-blue"
-                                            : ""
-                                        }`}
+                                        className={`font-medium transition-300 w-full ${isChildActive
+                                          ? "text-monday-blue"
+                                          : ""
+                                          }`}
                                       >
                                         {child.label}
                                       </p>
                                       <div
-                                        className={`w-2 h-9 shrink-0 rounded-l-xl bg-monday-blue hidden ${
-                                          isChildActive ? "flex" : ""
-                                        } transition-300`}
+                                        className={`w-2 h-9 shrink-0 rounded-l-xl bg-monday-blue hidden ${isChildActive ? "flex" : ""
+                                          } transition-300`}
                                       />
                                     </Link>
                                   </li>
@@ -192,51 +212,54 @@ const Sidebar = () => {
                     );
                   }
 
-                  const isActive = location.pathname === item.path;
+                  // const isActive = location.pathname === item.path;
+
+                  const isActive = location.pathname.startsWith(item.path);
+
+                  // console.log(item);
+
+                  // const isActiveGroup = relatedPaths.some(
+                  //   (item.ac) => location.pathname.startsWith(item.active)
+                  // );
 
                   return (
                     <li key={item.label} className="group">
                       {item.path && (
                         <Link
                           to={item.path}
-                          className={`flex items-center w-full min-h-14 gap-2 rounded-2xl overflow-hidden py-[10px] pl-4 ${
-                            isActive ? "group-[&.active]:bg-monday-blue/10" : ""
-                          } transition-300`}
+                          className={`flex items-center w-full min-h-14 gap-2 rounded-2xl overflow-hidden py-[10px] pl-4 ${isActive ? "group-[&.active]:bg-monday-blue/10" : ""
+                            } transition-300`}
                         >
                           {/* icons + label */}
                           <div className="relative flex size-6 shrink-0">
                             <img
                               src={item.iconBlack}
-                              className={`size-6 absolute ${
-                                isActive ? "opacity-0" : "opacity-100"
-                              } transition-300`}
+                              className={`size-6 absolute ${isActive ? "opacity-0" : "opacity-100"
+                                } transition-300`}
                               alt="icon"
                             />
                             <img
                               src={item.iconBlue}
-                              className={`size-6 absolute ${
-                                isActive ? "opacity-100" : "opacity-0"
-                              } transition-300`}
+                              className={`size-6 absolute ${isActive ? "opacity-100" : "opacity-0"
+                                } transition-300`}
                               alt="icon"
                             />
                           </div>
                           <p
-                            className={`font-medium transition-300 w-full ${
-                              isActive ? "text-monday-blue" : ""
-                            }`}
+                            className={`font-medium transition-300 w-full ${isActive ? "text-monday-blue" : ""
+                              }`}
                           >
                             {item.label}
                           </p>
                           <div
-                            className={`w-2 h-9 shrink-0 rounded-l-xl bg-monday-blue hidden ${
-                              isActive ? "flex" : ""
-                            } transition-300`}
+                            className={`w-2 h-9 shrink-0 rounded-l-xl bg-monday-blue hidden ${isActive ? "flex" : ""
+                              } transition-300`}
                           />
                         </Link>
                       )}
                     </li>
                   );
-                  
+
                 })}
               </ul>
             </nav>

@@ -28,15 +28,15 @@ const TransactionDetails = () => {
       { id: transaction.id, status: newStatus },
       {
         onError: (error) => {
-          setActionError("Failed to update status. Please try again.");
+          setActionError("Gagal mengubah status, coba lagi.");
           console.error(error);
         },
       }
     );
   };
 
-  if (isPending) return <p className="p-8">Loading transaction...</p>;
-  if (!transaction) return <p className="p-8">Transaction not found.</p>;
+  if (isPending) return <p className="p-8">Tunggu...</p>;
+  if (!transaction) return <p className="p-8">Transaksi Tidak Ditemukan.</p>;
 
   return (
     <>
@@ -50,7 +50,7 @@ const TransactionDetails = () => {
             <div className="flex items-center gap-6 h-[102px] bg-white w-full rounded-3xl p-[18px]">
               <div className="flex flex-col gap-2 w-full">
                 <h1 className="font-bold text-2xl capitalize">
-                  Transaction Details
+                  Detail Transaksi
                 </h1>
                 <Link
                   to={`/admin/transactions/`}
@@ -61,7 +61,7 @@ const TransactionDetails = () => {
                     className="size-[18px] flex shrink-0"
                     alt="icon"
                   />
-                  Manage Transactions
+                  Manajemen Transaksi
                 </Link>
               </div>
               <div className="flex items-center flex-nowrap gap-3">
@@ -118,11 +118,10 @@ const TransactionDetails = () => {
                   </p>
                   <p className="flex items-center gap-1 font-medium text-monday-gray text-lg leading-none">
                     <img
-                      src={`${
-                        transaction.user.gender == "Male"
-                          ? "/assets/images/icons/man-grey.svg"
-                          : "/assets/images/icons/woman-grey.svg"
-                      }`}
+                      src={`${transaction.user.gender == "Male"
+                        ? "/assets/images/icons/man-grey.svg"
+                        : "/assets/images/icons/woman-grey.svg"
+                        }`}
                       className="size-6"
                       alt="icon"
                     />
@@ -153,15 +152,14 @@ const TransactionDetails = () => {
                 </div>
               </div>
               <p
-                className={`badge flex w-[100px] shrink-0 rounded-full py-3 items-center justify-center text-white font-bold text-sm leading-none ${
-                  transaction.status === "Waiting"
-                    ? "bg-monday-orange"
-                    : transaction.status === "Rejected"
+                className={`badge flex w-[100px] shrink-0 rounded-full py-3 items-center justify-center text-white font-bold text-sm leading-none ${transaction.status === "Waiting"
+                  ? "bg-monday-orange"
+                  : transaction.status === "Rejected"
                     ? "bg-monday-red"
                     : transaction.status === "Approved"
-                    ? "bg-monday-green"
-                    : "bg-gray-400"
-                }`}
+                      ? "bg-monday-green"
+                      : "bg-gray-400"
+                  }`}
               >
                 {transaction.status}
               </p>
@@ -190,8 +188,7 @@ const TransactionDetails = () => {
                         alt="icon"
                       />
                       <p className="font-semibold text-lg leading-[1.4em] text-white">
-                        Sorry, the doctor isn’t available. We’re processing your
-                        refund now.
+                        Maaf, dokter sedang tidak ada. Kami sedang memproses pengembalian dana Anda.
                       </p>
                     </div>
                   </div>
@@ -216,8 +213,7 @@ const TransactionDetails = () => {
                         alt="icon"
                       />
                       <p className="font-semibold text-lg leading-[1.4em] text-white">
-                        Appointment approved. The doctor has confirmed their
-                        availability 😄{" "}
+                        Janji temu disetujui. Dokter telah mengonfirmasi ketersediaan mereka.
                       </p>
                     </div>
                   </div>
@@ -225,7 +221,7 @@ const TransactionDetails = () => {
 
                 <div className="flex flex-col h-fit w-full rounded-[20px] p-5 gap-5 bg-white">
                   <p className="header font-semibold text-xl">
-                    Booking Details
+                    Detail Pesanan
                   </p>
                   <div className="flex flex-col gap-4">
                     <div className="flex items-center justify-between">
@@ -258,10 +254,10 @@ const TransactionDetails = () => {
                             className="size-5"
                             alt="icon"
                           />
-                          {transaction.doctor.yoe} Years
+                          {transaction.doctor.yoe} Tahun
                         </p>
                         <p className="font-medium text-lg text-monday-gray">
-                          Experience
+                          Pengalaman
                         </p>
                       </div>
                     </div>
@@ -273,7 +269,7 @@ const TransactionDetails = () => {
                             className="size-6"
                             alt="icon"
                           />
-                          Date
+                          Tanggal
                         </p>
                         <p className="font-semibold text-xl leading-none">
                           {formatDate(transaction.started_at)}
@@ -286,7 +282,7 @@ const TransactionDetails = () => {
                             className="size-6"
                             alt="icon"
                           />
-                          Time
+                          Waktu
                         </p>
                         <p className="font-semibold text-xl leading-none">
                           {transaction.time_at}
@@ -299,7 +295,7 @@ const TransactionDetails = () => {
                             className="size-6"
                             alt="icon"
                           />
-                          Price
+                          Harga
                         </p>
                         <p className="font-semibold text-xl leading-none">
                           Rp {transaction.sub_total.toLocaleString("id")}
@@ -312,7 +308,7 @@ const TransactionDetails = () => {
                             className="size-6"
                             alt="icon"
                           />
-                          Tax 11%
+                          Pajak 11%
                         </p>
                         <p className="font-semibold text-xl leading-none">
                           Rp {transaction.tax_total.toLocaleString("id")}
@@ -326,7 +322,7 @@ const TransactionDetails = () => {
                             className="size-6"
                             alt="icon"
                           />
-                          Grand Total
+                          Total Seluruhnya
                         </p>
                         <p className="font-semibold text-2xl leading-none">
                           Rp {transaction.grand_total.toLocaleString("id")}
@@ -336,7 +332,7 @@ const TransactionDetails = () => {
                   </div>
                   <div className="flex flex-col gap-2">
                     <p className="header font-semibold text-xl">
-                      Proof of Payment
+                      Bukti Pembayaran
                     </p>
                     <div className="relative w-full h-[333px] rounded-2xl overflow-hidden bg-monday-gray-background">
                       <img
@@ -354,7 +350,7 @@ const TransactionDetails = () => {
                           alt="icon"
                         />
                         <p className="font-extrabold text-sm leading-none">
-                          PREVIEW
+                          Tampilan
                         </p>
                       </button>
                     </div>
@@ -388,7 +384,7 @@ const TransactionDetails = () => {
                 id="Hospital-Details"
                 className="flex flex-col h-fit w-full rounded-[20px] p-5 gap-6 bg-white"
               >
-                <p className="header font-semibold text-xl">Hospital Details</p>
+                <p className="header font-semibold text-xl">Detail Rumah Sakit</p>
                 <div className="flex items-center gap-4 w-full">
                   <div className="flex size-[92px] rounded-2xl bg-monday-background overflow-hidden shrink-0">
                     <img

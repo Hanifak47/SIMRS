@@ -21,9 +21,9 @@ class HospitalController extends Controller
 
     public function index()
     {
-        $fields = ['id', 'name', 'city', 'photo', 'phone', 'updated_at'];
+        $fields = ['id', 'name', 'city', 'photo', 'phone', 'updated_at', 'about', 'address'];
         $hospitals = $this->hospitalServices->getAll($fields);
-        return response()->json(SpecialistResource::collection($hospitals));
+        return response()->json(HospitalResource::collection($hospitals));
     }
 
     public function show(int $id)
