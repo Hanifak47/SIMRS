@@ -32,6 +32,9 @@ class DoctorResource extends JsonResource
 
             // Jika Anda belum memiliki HospitalResource, gunakan ini untuk mengirimkan objek penuh hospital:
             'hospital' => $this->whenLoaded('hospital'),
+
+            'specialist' => $this->whenLoaded('specialist'),
+
         ];
     }
 }

@@ -64,7 +64,7 @@ const AddHospital = () => {
           <div className="flex items-center gap-6 h-[102px] bg-white w-full rounded-3xl p-[18px]">
             <div className="flex flex-col gap-2 w-full">
               <h1 className="font-bold text-2xl capitalize">
-                Add New Hospital
+                Tambahkan Rumah Sakit Baru
               </h1>
               <Link
                 to={"/admin/hospitals"}
@@ -75,7 +75,7 @@ const AddHospital = () => {
                   className="size-[18px] flex shrink-0"
                   alt="icon"
                 />
-                Manage Hospitals
+                Manajemen Rumah Sakit
               </Link>
             </div>
             <div className="flex items-center flex-nowrap gap-3">
@@ -119,11 +119,11 @@ const AddHospital = () => {
             className="flex flex-col w-full rounded-3xl p-5 gap-5 bg-white"
           >
             <h2 className="font-semibold text-xl capitalize">
-              Complete the form
+              Lengkapi Form
             </h2>
             <div className="flex items-center justify-between">
               <p className="font-medium text-lg text-monday-gray">
-                Upload Image
+                Unggah Gambar
               </p>
               <div className="flex items-center justify-between w-[500px]">
                 <div className="group relative flex size-[100px] rounded-2xl overflow-hidden items-center justify-center bg-monday-background">
@@ -159,8 +159,8 @@ const AddHospital = () => {
                   className="btn btn-black w-[152px] font-semibold text-nowrap"
                 >
                   {imagePreview !== "/assets/images/icons/gallery-grey.svg"
-                    ? "Change Photo"
-                    : "Add Photo"}
+                    ? "Rubah Foto"
+                    : "Tambahkan Foto"}
                 </button>
               </div>
             </div>
@@ -173,7 +173,7 @@ const AddHospital = () => {
             )}
             <div className="flex items-center justify-between">
               <p className="font-medium text-lg text-monday-gray">
-                Hospital Name
+                Nama Rumah Sakit
               </p>
               <div className="group/errorState flex flex-col gap-2 invalid">
                 <label className="group relative w-[500px]">
@@ -185,16 +185,15 @@ const AddHospital = () => {
                     />
                   </div>
                   <p className="placeholder font-semibold text-monday-gray text-sm absolute -translate-y-1/2 left-[81px] top-[25px] group-has-[:placeholder-shown]:text-monday-black group-has-[:placeholder-shown]:text-lg group-has-[:placeholder-shown]:top-[36px] group-focus-within:top-[25px] transition-300">
-                    Enter Hospital Name
+                    Masukkan Nama Rumah Sakit
                   </p>
                   <input
                     type="text"
                     {...register("name")}
                     className={`appearance-none w-full h-[72px] font-semibold text-lg rounded-3xl border-[2px] pl-20 pr-6 pb-[14.5px] pt-[34.5px] placeholder-shown:pt-[14.5px] focus:border-monday-black transition-300
-                      ${
-                        errors.name
-                          ? "group-[&.invalid]/errorState:border-monday-red"
-                          : "border-monday-border"
+                      ${errors.name
+                        ? "group-[&.invalid]/errorState:border-monday-red"
+                        : "border-monday-border"
                       }`}
                     placeholder=""
                   />
@@ -210,7 +209,7 @@ const AddHospital = () => {
             </div>
             <div className="flex items-center justify-between">
               <p className="font-medium text-lg text-monday-gray">
-                Phone Number
+                Nomor Telepon
               </p>
               <div className="group/errorState flex flex-col gap-2 invalid">
                 <label className="group relative w-[500px]">
@@ -222,16 +221,15 @@ const AddHospital = () => {
                     />
                   </div>
                   <p className="placeholder font-semibold text-monday-gray text-sm absolute -translate-y-1/2 left-[81px] top-[25px] group-has-[:placeholder-shown]:text-monday-black group-has-[:placeholder-shown]:text-lg group-has-[:placeholder-shown]:top-[36px] group-focus-within:top-[25px] transition-300">
-                    Enter Phone Number
+                    Masukkan Nomor Telepon
                   </p>
                   <input
                     type="tel"
                     {...register("phone")}
                     className={`appearance-none w-full h-[72px] font-semibold text-lg rounded-3xl border-[2px] pl-20 pr-6 pb-[14.5px] pt-[34.5px] placeholder-shown:pt-[14.5px] focus:border-monday-black transition-300
-                      ${
-                        errors.phone
-                          ? "group-[&.invalid]/errorState:border-monday-red"
-                          : "border-monday-border"
+                      ${errors.phone
+                        ? "group-[&.invalid]/errorState:border-monday-red"
+                        : "border-monday-border"
                       }`}
                     placeholder=""
                   />
@@ -247,15 +245,14 @@ const AddHospital = () => {
             </div>
             <div className="flex justify-between">
               <p className="font-medium text-lg text-monday-gray mt-[24.5px]">
-                Hospital About
+                Tentang Rumah Sakit
               </p>
               <div className="group/errorState flex flex-col gap-2 invalid">
                 <label
-                  className={`group flex py-4 px-6 rounded-3xl border-[2px] transition-300 w-[500px] ${
-                    errors.about
+                  className={`group flex py-4 px-6 rounded-3xl border-[2px] transition-300 w-[500px] ${errors.about
                       ? "group-[&.invalid]/errorState:border-monday-red"
                       : "border-monday-border"
-                  } focus-within:border-monday-black`}
+                    } focus-within:border-monday-black`}
                 >
                   <div className="flex h-full pr-4 pt-2 border-r-[1.5px] border-monday-border ">
                     <img
@@ -266,7 +263,7 @@ const AddHospital = () => {
                   </div>
                   <div className="flex flex-col gap-[6px] pl-4 w-full">
                     <p className="placeholder font-semibold text-monday-gray text-sm group-has-[:placeholder-shown]:text-lg group-has-[:placeholder-shown]:text-monday-black transition-300">
-                      Enter Hospital Description
+                      Masukkan Deskripsi Rumah Sakit
                     </p>
                     <textarea
                       className="appearance-none outline-none w-full font-semibold text-lg leading-[160%]"
@@ -286,9 +283,9 @@ const AddHospital = () => {
                 )}
               </div>
             </div>
-            <div className="flex items-center justify-between">
+            {/* <div className="flex items-center justify-between">
               <p className="font-medium text-lg text-monday-gray">
-                Hospital City
+                Kota Rumah Sakit
               </p>
               <div className="group/errorState flex flex-col gap-2 invalid">
                 <label
@@ -306,7 +303,7 @@ const AddHospital = () => {
                     />
                   </div>
                   <p className="placeholder font-medium text-lg absolute -translate-y-1/2 left-[81px] top-[25px] group-has-[:invalid]:top-[36px] group-has-[:valid]:text-sm group-has-[:valid]:text-monday-gray group-focus-within:top-[25px] transition-300">
-                    Select City
+                    Pilih Kota
                   </p>
                   <select
                     id=""
@@ -331,9 +328,46 @@ const AddHospital = () => {
                   </p>
                 )}
               </div>
-            </div>
+            </div> */}
+
+
             <div className="flex items-center justify-between">
-              <p className="font-medium text-lg text-monday-gray">Post Code</p>
+              <p className="font-medium text-lg text-monday-gray">Kota Rumah Sakit</p>
+              <div className="group/errorState flex flex-col gap-2 invalid">
+                <label className="group relative w-[500px]">
+                  <div className="flex items-center pr-4 absolute transform -translate-y-1/2 top-1/2 left-6 border-r-[1.5px] border-monday-border ">
+                    <img
+                      src="/assets/images/icons/buildings-grey.svg"
+                      className="flex size-6 shrink-0"
+                      alt="icon"
+                    />
+                  </div>
+                  <p className="placeholder font-semibold text-monday-gray text-sm absolute -translate-y-1/2 left-[81px] top-[25px] group-has-[:placeholder-shown]:text-monday-black group-has-[:placeholder-shown]:text-lg group-has-[:placeholder-shown]:top-[36px] group-focus-within:top-[25px] transition-300">
+                    Masukkan Kota Rumah Sakit
+                  </p>
+                  <input
+                    type="text"
+                    {...register("city")}
+                    className={`appearance-none w-full h-[72px] font-semibold text-lg rounded-3xl border-[2px] pl-20 pr-6 pb-[14.5px] pt-[34.5px] placeholder-shown:pt-[14.5px] focus:border-monday-black transition-300
+                      ${errors.city
+                        ? "group-[&.invalid]/errorState:border-monday-red"
+                        : "border-monday-border"
+                      }`}
+                    placeholder=""
+                  />
+                </label>
+                {errors.city && (
+                  <p className="text-red-500">
+                    <span className="font-semibold text-lg text-monday-red leading-none group-[&.invalid]/errorState:block">
+                      {errors.city.message}
+                    </span>
+                  </p>
+                )}
+              </div>
+            </div>
+
+            <div className="flex items-center justify-between">
+              <p className="font-medium text-lg text-monday-gray">Kode Pos</p>
               <div className="group/errorState flex flex-col gap-2 invalid">
                 <label className="group relative w-[500px]">
                   <div className="flex items-center pr-4 absolute transform -translate-y-1/2 top-1/2 left-6 border-r-[1.5px] border-monday-border ">
@@ -344,16 +378,15 @@ const AddHospital = () => {
                     />
                   </div>
                   <p className="placeholder font-semibold text-monday-gray text-sm absolute -translate-y-1/2 left-[81px] top-[25px] group-has-[:placeholder-shown]:text-monday-black group-has-[:placeholder-shown]:text-lg group-has-[:placeholder-shown]:top-[36px] group-focus-within:top-[25px] transition-300">
-                    Enter Post Code
+                    Masukkan Kode Pos
                   </p>
                   <input
                     type="text"
                     {...register("post_code")}
                     className={`appearance-none w-full h-[72px] font-semibold text-lg rounded-3xl border-[2px] pl-20 pr-6 pb-[14.5px] pt-[34.5px] placeholder-shown:pt-[14.5px] focus:border-monday-black transition-300
-                      ${
-                        errors.post_code
-                          ? "group-[&.invalid]/errorState:border-monday-red"
-                          : "border-monday-border"
+                      ${errors.post_code
+                        ? "group-[&.invalid]/errorState:border-monday-red"
+                        : "border-monday-border"
                       }`}
                     placeholder=""
                   />
@@ -369,15 +402,14 @@ const AddHospital = () => {
             </div>
             <div className="flex justify-between">
               <p className="font-medium text-lg text-monday-gray mt-[24.5px]">
-                Hospital Address
+                Alamat Rumah Sakit
               </p>
               <div className="group/errorState flex flex-col gap-2 invalid">
                 <label
-                  className={`group flex py-4 px-6 rounded-3xl border-[2px] transition-300 w-[500px] ${
-                    errors.address
+                  className={`group flex py-4 px-6 rounded-3xl border-[2px] transition-300 w-[500px] ${errors.address
                       ? "group-[&.invalid]/errorState:border-monday-red"
                       : "border-monday-border"
-                  } focus-within:border-monday-black`}
+                    } focus-within:border-monday-black`}
                 >
                   <div className="flex h-full pr-4 pt-2 border-r-[1.5px] border-monday-border ">
                     <img
@@ -388,7 +420,7 @@ const AddHospital = () => {
                   </div>
                   <div className="flex flex-col gap-[6px] pl-4 w-full">
                     <p className="placeholder font-semibold text-monday-gray text-sm group-has-[:placeholder-shown]:text-lg group-has-[:placeholder-shown]:text-monday-black transition-300">
-                      Enter Address
+                      Masukkan Alamat
                     </p>
                     <textarea
                       className="appearance-none outline-none w-full font-semibold text-lg leading-[160%]"
@@ -412,13 +444,13 @@ const AddHospital = () => {
                 to={"/admin/hospitals"}
                 className="btn btn-red font-semibold"
               >
-                Cancel
+                Batalkan
               </Link>
               <button
                 type="submit"
                 className="btn btn-primary font-semibold rounded-full"
               >
-                {isPending ? "Saving..." : "Save hospital"}
+                {isPending ? "Menyimpan..." : "Simpan Data Rumah Sakit"}
               </button>
             </div>
           </form>

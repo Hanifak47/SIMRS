@@ -7,13 +7,37 @@ export const hospitalSchema = z.object({
   city: z.string().min(1, "City is required"),
   post_code: z.string().min(1, "Post code is required"),
   phone: z.string().min(1, "Phone is required"),
+  // Ubah validasi foto menjadi opsional jika ada existingPhoto
   photo: z
-    .custom<File>((file) => file instanceof File, "Photo is required")
-    .refine((file) => ["image/png", "image/jpeg"].includes(file.type), {
-      message: "Invalid file format (PNG or JPEG only)",
+    .any() // Gunakan z.any() untuk menerima string (URL) atau File
+    .optional() // Jadikan field opsional
+    .refine((file) => {
+      // Jika file bukan File, berarti ini adalah URL foto yang sudah ada, jadi valid
+      if (typeof file === 'string') {
+        return true;
+      }
+      // Jika file adalah File, lakukan validasi seperti sebelumnya
+      if (file instanceof File) {
+        return ["image/png", "image/jpeg"].includes(file.type);
+      }
+      // Jika tidak ada file (dan ini opsional), juga valid
+      return true;
+    }, {
+      message: "Format File Salah (PNG or JPEG only)",
     })
-    .refine((file) => file.size <= 2 * 1024 * 1024, {
-      message: "Image must be under 2MB",
+    .refine((file) => {
+      // Jika file bukan File, berarti ini adalah URL foto yang sudah ada, jadi valid
+      if (typeof file === 'string') {
+        return true;
+      }
+      // Jika file adalah File, lakukan validasi ukuran seperti sebelumnya
+      if (file instanceof File) {
+        return file.size <= 2 * 1024 * 1024;
+      }
+      // Jika tidak ada file (dan ini opsional), juga valid
+      return true;
+    }, {
+      message: "Ukuran Harus Di Bawah 2MB",
     }),
 });
 

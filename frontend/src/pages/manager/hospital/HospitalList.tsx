@@ -8,9 +8,9 @@ import UserProfileCard from "../../../components/UserProfileCard";
 const HospitalList = () => {
   const { data: hospitals, isPending } = useFetchHospitals(); 
 
-  console.log(hospitals);
+  // console.log(hospitals);
 
-  if (isPending) return <p>Loading hospitals...</p>;
+  if (isPending) return <p>Loading Rumah Sakit...</p>;
   
   return (
     <div id="main-container" className="flex flex-1">
@@ -23,10 +23,10 @@ const HospitalList = () => {
           <div className="flex items-center gap-6 h-[102px] bg-white w-full rounded-3xl p-[18px]">
             <div className="flex flex-col gap-2 w-full">
               <h1 className="font-bold text-2xl capitalize">
-                Manage Hospitals
+                Manajemen Rumah Sakit
               </h1>
               <p className="flex items-center gap-1 font-semibold text-monday-gray text-lg leading-none">
-                View &amp; Update Your Hospital Here
+                Lihat &amp; Perbarui Data Rumah Sakit
               </p>
             </div>
             <div className="flex items-center flex-nowrap gap-3">
@@ -68,21 +68,21 @@ const HospitalList = () => {
           <section className="flex flex-col gap-6 flex-1 rounded-[20px] p-5 px-0 bg-white">
             <div id="Header" className="flex items-center justify-between px-5">
               <div className="flex flex-col gap-2">
-                <p className="font-semibold text-xl">All Hospitals</p>
+                <p className="font-semibold text-xl">Semua Rumah Sakit</p>
                 <p className="flex items-center gap-1 font-semibold text-monday-gray text-lg leading-none">
                   <img
                     src="/assets/images/icons/hospital-grey.svg"
                     className="size-5"
                     alt="icon"
                   />
-                  {hospitals && hospitals.length} Total Hospitals
+                  {hospitals && hospitals.length} Jumlah Rumah Sakit
                 </p>
               </div>
               <Link
                 to="/admin/hospitals/create"
                 className="btn btn-primary font-semibold text-lg"
               >
-                Add New
+                Tambah Baru
                 <img
                   src="/assets/images/icons/add-white.svg"
                   className="flex sixe-6 shrink-0"
@@ -133,7 +133,7 @@ const HospitalList = () => {
                             to={`/admin/hospitals/details/${hospital.id}`}
                             className="btn btn-primary-opacity min-w-[120px] font-semibold"
                           >
-                            Details
+                            Detail
                           </Link>
                           <Link
                             to={`/admin/hospitals/edit/${hospital.id}`}
@@ -144,7 +144,7 @@ const HospitalList = () => {
                               className="flex size-6 shrink-0"
                               alt="icon"
                             />
-                            Edit
+                            Ubah
                           </Link>
                         </div>
                       </div>
@@ -163,7 +163,7 @@ const HospitalList = () => {
                               {hospital.doctors_count.toLocaleString("id")}
                             </p>
                             <p className="font-medium text-monday-gray">
-                              Total Doctors
+                              Total Dokter
                             </p>
                           </div>
                         </div>
@@ -197,7 +197,7 @@ const HospitalList = () => {
                               {hospital.phone}
                             </p>
                             <p className="font-medium text-monday-gray">
-                              Phone Number
+                              Nomor Telfon
                             </p>
                           </div>
                         </div>
@@ -217,10 +217,10 @@ const HospitalList = () => {
                   />
                   <div className="flex flex-col gap-1 items-center text-center">
                     <p className="font-semibold text-monday-gray">
-                      Oops, you don't have any data yet
+                      Oops, Tidak Ada Data
                     </p>
                     <a href="#" className="font-bold text-monday-blue">
-                      Create Now +
+                      Buat Sekarang
                     </a>
                   </div>
                 </div>

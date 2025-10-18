@@ -10,8 +10,8 @@ const HospitalDetails = () => {
   const { data: hospital, isPending } = useFetchHospital(Number(id));
   const { mutate: deleteSpecialist } = useDeleteHospitalSpecialist();
 
-  if (isPending) return <p>Loading hospital details...</p>;
-  if (!hospital) return <p> hospital notfound...</p>;
+  if (isPending) return <p>Tunggu Detail Rumah Sakit...</p>;
+  if (!hospital) return <p> Rumah Sakit Tidak Dietmukan...</p>;
 
   return (
     <div id="main-container" className="flex flex-1">
@@ -24,7 +24,7 @@ const HospitalDetails = () => {
           <div className="flex items-center gap-6 h-[102px] bg-white w-full rounded-3xl p-[18px]">
             <div className="flex flex-col gap-2 w-full">
               <h1 className="font-bold text-2xl capitalize">
-                Hospital Details
+                Detail Rumah Sakit
               </h1>
               <Link to={`/admin/hospitals/`}
                 className="flex items-center gap-1 font-semibold text-monday-gray text-lg leading-none"
@@ -34,7 +34,7 @@ const HospitalDetails = () => {
                   className="size-[18px] flex shrink-0"
                   alt="icon"
                 />
-                Manage Hospitals
+                Manajemen Rumah Sakit
               </Link>
             </div>
             <div className="flex items-center flex-nowrap gap-3">
@@ -106,7 +106,7 @@ const HospitalDetails = () => {
                 alt="icon"
               />
               <p className="font-semibold text-lg text-nowrap">
-                {hospital.specialists_count} Specialists
+                {hospital.specialists_count} Specialist
               </p>
             </div>
             <div className="flex items-center gap-1 w-[210px] shrink-0">
@@ -116,7 +116,7 @@ const HospitalDetails = () => {
                 alt="icon"
               />
               <p className="font-semibold text-lg text-nowrap">
-                {hospital.doctors_count} Doctors
+                {hospital.doctors_count} Dokter
               </p>
             </div>
             <div className="flex items-center gap-4">
@@ -129,7 +129,7 @@ const HospitalDetails = () => {
                   className="flex size-6 shrink-0"
                   alt="icon"
                 />
-                Edit
+                Ubah
               </Link>
             </div>
           </section>
@@ -138,7 +138,7 @@ const HospitalDetails = () => {
               id="Doctor-List"
               className="flex flex-col h-full w-[calc((440/960)*100%)] shrink-0 rounded-[20px] p-5 gap-5 bg-white"
             >
-              <p className="header font-semibold text-xl">Doctors List</p>
+              <p className="header font-semibold text-xl">Daftar Dokter</p>
               {hospital.doctors && hospital.doctors.length > 0 ? (
                 <div className="flex flex-col gap-5">
                   {hospital.doctors.map((doctor) => (
@@ -181,7 +181,7 @@ const HospitalDetails = () => {
                   />
                   <div className="flex flex-col gap-1 items-center text-center">
                     <p className="font-semibold text-monday-gray">
-                      Oops, you don't have any data yet
+                      Ups, kamu tidak memiliki data
                     </p>
                   </div>
                 </div>
@@ -191,12 +191,12 @@ const HospitalDetails = () => {
               id="Specialist-List"
               className="flex flex-col h-full w-full rounded-[20px] p-5 gap-6 bg-white"
             >
-              <p className="header font-semibold text-xl">Specialist List</p>
+              <p className="header font-semibold text-xl">Daftar Spesialis</p>
               <Link
                 to={`/admin/hospitals/details/${id}/assign-specialist`}
                 className="btn btn-primary font-semibold text-lg w-full"
               >
-                Assign Specialist
+                Penambahan Spesialis
                 <img
                   src="/assets/images/icons/add-white.svg"
                   className="flex sixe-6 shrink-0"
@@ -237,7 +237,7 @@ const HospitalDetails = () => {
 
                             if (
                               window.confirm(
-                                "Are you sure you want to delete this specialist?"
+                                "Apakah Kamu Ingin Menghapus Spesialis Ini?"
                               )
                             ) {
                               deleteSpecialist({
@@ -271,10 +271,10 @@ const HospitalDetails = () => {
                   />
                   <div className="flex flex-col gap-1 items-center text-center">
                     <p className="font-semibold text-monday-gray">
-                      Oops, you don't have any data yet
+                      Ups, Kamu Tidak Punya Data
                     </p>
                     <a href="#" className="font-bold text-monday-blue">
-                      Add Now +
+                      Tambahkan Sekarang
                     </a>
                   </div>
                 </div>

@@ -9,6 +9,12 @@ const LoginManager = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
 
+  const [showPassword, setShowPassword] = useState(false); // <-- TAMBAHKAN INI
+
+  const togglePasswordVisibility = () => { // <-- TAMBAHKAN FUNGSI INI
+    setShowPassword(!showPassword);
+  };
+
   useEffect(() => {
     if (!loading && user?.roles) {
       if (user.roles.includes("manager")) {
@@ -48,7 +54,7 @@ const LoginManager = () => {
           <div className="flex flex-col gap-8">
             <div className="flex flex-col gap-2 text-center">
               <p className="font-semibold text-2xl">
-                Hey there! 🙌🏻 Welcome back!
+                Halo! 🙌🏻 Selamat Datang Kembali!
               </p>
               <p className="font-medium text-monday-gray">
                 Akses akunmu untuk melanjutkan
@@ -84,11 +90,11 @@ const LoginManager = () => {
                   />
                 </div>
                 <p className="placeholder font-medium text-monday-gray text-sm absolute -translate-y-1/2 left-[81px] top-[25px] group-has-[:placeholder-shown]:top-[36px] group-focus-within:top-[25px] transition-300">
-                 Passwordmu
+                  Passwordmu
                 </p>
                 <input
                   id="passwordInput"
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="appearance-none w-full h-[72px] font-semibold text-lg rounded-3xl border-[1.5px] border-monday-border pl-20 pr-16 pb-[14.5px] pt-[34.5px] placeholder-shown:pt-[14.5px] focus:border-monday-black transition-300 tracking-[0.3em]"
@@ -97,6 +103,7 @@ const LoginManager = () => {
                 <button
                   id="togglePassword"
                   type="button"
+                  onClick={togglePasswordVisibility}
                   className="absolute transform -translate-y-1/2 top-1/2 right-6"
                 >
                   <img

@@ -28,8 +28,8 @@ class HospitalResource extends JsonResource
             'updated_at' => $this->updated_at,
 
             // hitung doktor dan specialist dari rs ini
-            'doctor_count' => $this->doctors->count(),
-            'specialist_count' => $this->specialists->count(),
+            'doctors_count' => $this->doctors->count(),
+            'specialists_count' => $this->specialists->count(),
 
             // tampilkan list doctor dan specialist dari rs ini
             'doctors' => DoctorResource::collection($this->whenLoaded('doctors')),

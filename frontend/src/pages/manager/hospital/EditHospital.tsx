@@ -14,9 +14,9 @@ const EditHospital = () => {
   const navigate = useNavigate();
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
-    const [imagePreview, setImagePreview] = useState(
-      "/assets/images/icons/gallery-grey.svg"
-    );
+  const [imagePreview, setImagePreview] = useState(
+    "/assets/images/icons/gallery-grey.svg"
+  );
 
   const { data: hospital, isPending: isLoading } = useFetchHospital(Number(id));
   const { mutate: updateHospital, isPending: isUpdating } = useUpdateHospital();
@@ -40,7 +40,7 @@ const EditHospital = () => {
       setValue("address", hospital.address);
       setValue("phone", hospital.phone);
       if (hospital.photo) {
-        setImagePreview(hospital.photo);  
+        setImagePreview(hospital.photo);
       }
     }
   }, [hospital, setValue]);
@@ -70,7 +70,7 @@ const EditHospital = () => {
     );
   };
 
-  if (isLoading) return <p>Loading hospital data...</p>;
+  if (isLoading) return <p>Tunggu Data Rumah Sakit...</p>;
 
   return (
     <div id="main-container" className="flex flex-1">
@@ -83,7 +83,7 @@ const EditHospital = () => {
           <div className="flex items-center gap-6 h-[102px] bg-white w-full rounded-3xl p-[18px]">
             <div className="flex flex-col gap-2 w-full">
               <h1 className="font-bold text-2xl capitalize">
-                Edit Hospital
+                Ubah Rumah Sakit
               </h1>
               <Link to={`/admin/hospitals/`}
                 className="flex items-center gap-1 font-semibold text-monday-gray text-lg leading-none"
@@ -93,7 +93,7 @@ const EditHospital = () => {
                   className="size-[18px] flex shrink-0"
                   alt="icon"
                 />
-                Manage Hospitals
+                Manajemen Rumah Sakit
               </Link>
             </div>
             <div className="flex items-center flex-nowrap gap-3">
@@ -137,11 +137,11 @@ const EditHospital = () => {
             className="flex flex-col w-full rounded-3xl p-5 gap-5 bg-white"
           >
             <h2 className="font-semibold text-xl capitalize">
-              Complete the form
+              Lengkapi Form Inputan
             </h2>
             <div className="flex items-center justify-between">
               <p className="font-medium text-lg text-monday-gray">
-                Upload Image
+                Unggah Gambar
               </p>
               <div className="flex items-center justify-between w-[500px]">
                 <div className="group relative flex size-[100px] rounded-2xl overflow-hidden items-center justify-center bg-monday-background">
@@ -177,8 +177,8 @@ const EditHospital = () => {
                   className="btn btn-black w-[152px] font-semibold text-nowrap"
                 >
                   {imagePreview !== "/assets/images/icons/gallery-grey.svg"
-                    ? "Change Photo"
-                    : "Add Photo"}
+                    ? "Ubah Foto"
+                    : "Tambahkan Foto"}
                 </button>
               </div>
             </div>
@@ -191,7 +191,7 @@ const EditHospital = () => {
             )}
             <div className="flex items-center justify-between">
               <p className="font-medium text-lg text-monday-gray">
-                Hospital Name
+                Nama Rumah Sakit
               </p>
               <div className="group/errorState flex flex-col gap-2 invalid">
                 <label className="group relative w-[500px]">
@@ -203,16 +203,15 @@ const EditHospital = () => {
                     />
                   </div>
                   <p className="placeholder font-semibold text-monday-gray text-sm absolute -translate-y-1/2 left-[81px] top-[25px] group-has-[:placeholder-shown]:text-monday-black group-has-[:placeholder-shown]:text-lg group-has-[:placeholder-shown]:top-[36px] group-focus-within:top-[25px] transition-300">
-                    Enter Hospital Name
+                    Masukkan Nama Rumah Sakit
                   </p>
                   <input
                     type="text"
                     {...register("name")}
                     className={`appearance-none w-full h-[72px] font-semibold text-lg rounded-3xl border-[2px] pl-20 pr-6 pb-[14.5px] pt-[34.5px] placeholder-shown:pt-[14.5px] focus:border-monday-black transition-300
-                      ${
-                        errors.name
-                          ? "group-[&.invalid]/errorState:border-monday-red"
-                          : "border-monday-border"
+                      ${errors.name
+                        ? "group-[&.invalid]/errorState:border-monday-red"
+                        : "border-monday-border"
                       }`}
                     placeholder=""
                   />
@@ -228,7 +227,7 @@ const EditHospital = () => {
             </div>
             <div className="flex items-center justify-between">
               <p className="font-medium text-lg text-monday-gray">
-                Phone Number
+                Nomor Telefon
               </p>
               <div className="group/errorState flex flex-col gap-2 invalid">
                 <label className="group relative w-[500px]">
@@ -240,16 +239,15 @@ const EditHospital = () => {
                     />
                   </div>
                   <p className="placeholder font-semibold text-monday-gray text-sm absolute -translate-y-1/2 left-[81px] top-[25px] group-has-[:placeholder-shown]:text-monday-black group-has-[:placeholder-shown]:text-lg group-has-[:placeholder-shown]:top-[36px] group-focus-within:top-[25px] transition-300">
-                    Enter Phone Number
+                    Masukkan Nomor Telefon
                   </p>
                   <input
                     type="tel"
                     {...register("phone")}
                     className={`appearance-none w-full h-[72px] font-semibold text-lg rounded-3xl border-[2px] pl-20 pr-6 pb-[14.5px] pt-[34.5px] placeholder-shown:pt-[14.5px] focus:border-monday-black transition-300
-                      ${
-                        errors.phone
-                          ? "group-[&.invalid]/errorState:border-monday-red"
-                          : "border-monday-border"
+                      ${errors.phone
+                        ? "group-[&.invalid]/errorState:border-monday-red"
+                        : "border-monday-border"
                       }`}
                     placeholder=""
                   />
@@ -265,15 +263,14 @@ const EditHospital = () => {
             </div>
             <div className="flex justify-between">
               <p className="font-medium text-lg text-monday-gray mt-[24.5px]">
-                Hospital About
+                Tentang Rumah Sakit
               </p>
               <div className="group/errorState flex flex-col gap-2 invalid">
                 <label
-                  className={`group flex py-4 px-6 rounded-3xl border-[2px] transition-300 w-[500px] ${
-                    errors.about
+                  className={`group flex py-4 px-6 rounded-3xl border-[2px] transition-300 w-[500px] ${errors.about
                       ? "group-[&.invalid]/errorState:border-monday-red"
                       : "border-monday-border"
-                  } focus-within:border-monday-black`}
+                    } focus-within:border-monday-black`}
                 >
                   <div className="flex h-full pr-4 pt-2 border-r-[1.5px] border-monday-border ">
                     <img
@@ -284,7 +281,7 @@ const EditHospital = () => {
                   </div>
                   <div className="flex flex-col gap-[6px] pl-4 w-full">
                     <p className="placeholder font-semibold text-monday-gray text-sm group-has-[:placeholder-shown]:text-lg group-has-[:placeholder-shown]:text-monday-black transition-300">
-                      Enter Hospital Description
+                      Masukkan Deskripsi Rumah Sakit
                     </p>
                     <textarea
                       className="appearance-none outline-none w-full font-semibold text-lg leading-[160%]"
@@ -304,18 +301,11 @@ const EditHospital = () => {
                 )}
               </div>
             </div>
+
             <div className="flex items-center justify-between">
-              <p className="font-medium text-lg text-monday-gray">
-                Hospital City
-              </p>
+              <p className="font-medium text-lg text-monday-gray">Kota Rumah Sakit</p>
               <div className="group/errorState flex flex-col gap-2 invalid">
-                <label
-                  className={`group relative rounded-3xl border-[1.5px] focus-within:border-monday-black transition-300 overflow-hidden w-[500px] ${
-                    errors.city
-                      ? "group-[&.invalid]/errorState:border-monday-red"
-                      : "border-monday-border"
-                  }`}
-                >
+                <label className="group relative w-[500px]">
                   <div className="flex items-center pr-4 absolute transform -translate-y-1/2 top-1/2 left-6 border-r-[1.5px] border-monday-border ">
                     <img
                       src="/assets/images/icons/buildings-grey.svg"
@@ -323,22 +313,18 @@ const EditHospital = () => {
                       alt="icon"
                     />
                   </div>
-                  <p className="placeholder font-medium text-lg absolute -translate-y-1/2 left-[81px] top-[25px] group-has-[:invalid]:top-[36px] group-has-[:valid]:text-sm group-has-[:valid]:text-monday-gray group-focus-within:top-[25px] transition-300">
-                    Select City
+                  <p className="placeholder font-semibold text-monday-gray text-sm absolute -translate-y-1/2 left-[81px] top-[25px] group-has-[:placeholder-shown]:text-monday-black group-has-[:placeholder-shown]:text-lg group-has-[:placeholder-shown]:top-[36px] group-focus-within:top-[25px] transition-300">
+                    Masukkan Kota Rumah Sakit
                   </p>
-                  <select
-                    id=""
-                    {...register("city")} 
-                    className="appearance-none w-full h-[72px] font-semibold text-lg outline-none pl-20 pr-6 pb-[14.5px] pt-[32px]"
-                  >
-                    <option value={hospital?.city}>{hospital?.city}</option>
-                    <option value="Jakarta">Jakarta</option>
-                    <option value="Bogor">Bogor</option>
-                  </select>
-                  <img
-                    src="/assets/images/icons/arrow-down-black.svg"
-                    className="absolute transform -translate-y-1/2 top-1/2 right-6 size-6"
-                    alt="icon"
+                  <input
+                    type="text"
+                    {...register("city")}
+                    className={`appearance-none w-full h-[72px] font-semibold text-lg rounded-3xl border-[2px] pl-20 pr-6 pb-[14.5px] pt-[34.5px] placeholder-shown:pt-[14.5px] focus:border-monday-black transition-300
+                      ${errors.city
+                        ? "group-[&.invalid]/errorState:border-monday-red"
+                        : "border-monday-border"
+                      }`}
+                    placeholder=""
                   />
                 </label>
                 {errors.city && (
@@ -350,8 +336,9 @@ const EditHospital = () => {
                 )}
               </div>
             </div>
+
             <div className="flex items-center justify-between">
-              <p className="font-medium text-lg text-monday-gray">Post Code</p>
+              <p className="font-medium text-lg text-monday-gray">Kode Pos</p>
               <div className="group/errorState flex flex-col gap-2 invalid">
                 <label className="group relative w-[500px]">
                   <div className="flex items-center pr-4 absolute transform -translate-y-1/2 top-1/2 left-6 border-r-[1.5px] border-monday-border ">
@@ -362,16 +349,15 @@ const EditHospital = () => {
                     />
                   </div>
                   <p className="placeholder font-semibold text-monday-gray text-sm absolute -translate-y-1/2 left-[81px] top-[25px] group-has-[:placeholder-shown]:text-monday-black group-has-[:placeholder-shown]:text-lg group-has-[:placeholder-shown]:top-[36px] group-focus-within:top-[25px] transition-300">
-                    Enter Post Code
+                    Masukkan Kode Pos
                   </p>
                   <input
                     type="text"
                     {...register("post_code")}
                     className={`appearance-none w-full h-[72px] font-semibold text-lg rounded-3xl border-[2px] pl-20 pr-6 pb-[14.5px] pt-[34.5px] placeholder-shown:pt-[14.5px] focus:border-monday-black transition-300
-                      ${
-                        errors.post_code
-                          ? "group-[&.invalid]/errorState:border-monday-red"
-                          : "border-monday-border"
+                      ${errors.post_code
+                        ? "group-[&.invalid]/errorState:border-monday-red"
+                        : "border-monday-border"
                       }`}
                     placeholder=""
                   />
@@ -387,15 +373,14 @@ const EditHospital = () => {
             </div>
             <div className="flex justify-between">
               <p className="font-medium text-lg text-monday-gray mt-[24.5px]">
-                Hospital Address
+                Alamat Rumah Sakit
               </p>
               <div className="group/errorState flex flex-col gap-2 invalid">
                 <label
-                  className={`group flex py-4 px-6 rounded-3xl border-[2px] transition-300 w-[500px] ${
-                    errors.address
+                  className={`group flex py-4 px-6 rounded-3xl border-[2px] transition-300 w-[500px] ${errors.address
                       ? "group-[&.invalid]/errorState:border-monday-red"
                       : "border-monday-border"
-                  } focus-within:border-monday-black`}
+                    } focus-within:border-monday-black`}
                 >
                   <div className="flex h-full pr-4 pt-2 border-r-[1.5px] border-monday-border ">
                     <img
@@ -429,13 +414,13 @@ const EditHospital = () => {
               <Link to={`/admin/hospitals/`}
                 className="btn btn-red font-semibold"
               >
-                Cancel
+                Batal
               </Link>
               <button
                 type="submit"
                 className="btn btn-primary font-semibold rounded-full"
               >
-                {isUpdating ? "Saving..." : "Save hospital"}
+                {isUpdating ? "Menyimpan..." : "Simpan Data Rumah Sakit"}
               </button>
             </div>
           </form>
