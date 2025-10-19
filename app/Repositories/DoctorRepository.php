@@ -10,7 +10,7 @@ class DoctorRepository
         // return Doctor::select($fields)->latest()->paginate(10);
 
         return Doctor::select($fields)
-            ->with('hospital') // <-- PERBAIKAN PENTING
+            ->with(['hospital', 'specialist']) // <-- PERBAIKAN PENTING
             ->latest()
             ->paginate(10);
     }
@@ -18,7 +18,7 @@ class DoctorRepository
     public function getById(int $id, array $fields = ['*'])
     {
         return Doctor::select($fields)
-            ->with(['specialist', 'hospital', 'bookingTransactions.user'])
+            ->with(['specialist', 'hospital', 'bookingTransactions', 'bookingTransactions.user'])
             ->findOrFail($id);
     }
 

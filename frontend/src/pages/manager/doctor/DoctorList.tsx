@@ -6,7 +6,9 @@ import UserProfileCard from "../../../components/UserProfileCard";
 const DoctorList = () => {
   const { data: doctors, isPending } = useFetchDoctors();
 
-  if (isPending) return <p>Loading doctors...</p>;
+  if (isPending) return <p>Menunggu Data Dokter...</p>;
+
+  console.log(doctors);
 
   return (
     <div id="main-container" className="flex flex-1">
@@ -18,9 +20,9 @@ const DoctorList = () => {
         >
           <div className="flex items-center gap-6 h-[102px] bg-white w-full rounded-3xl p-[18px]">
             <div className="flex flex-col gap-2 w-full">
-              <h1 className="font-bold text-2xl capitalize">Manage Doctors</h1>
+              <h1 className="font-bold text-2xl capitalize">Manajemen Dokter</h1>
               <p className="flex items-center gap-1 font-semibold text-monday-gray text-lg leading-none">
-                View &amp; Update Your Doctors Here
+                Lihat &amp; Perbarui Data Dokter Disini
               </p>
             </div>
             <div className="flex items-center flex-nowrap gap-3">
@@ -62,21 +64,21 @@ const DoctorList = () => {
           <section className="flex flex-col gap-6 flex-1 rounded-[20px] p-5 px-0 bg-white">
             <div id="Header" className="flex items-center justify-between px-5">
               <div className="flex flex-col gap-2">
-                <p className="font-semibold text-xl">All Doctors</p>
+                <p className="font-semibold text-xl">Semua Dokter</p>
                 <p className="flex items-center gap-1 font-semibold text-monday-gray text-lg leading-none">
                   <img
                     src="/assets/images/icons/stetoscop-grey.svg"
                     className="size-6"
                     alt="icon"
                   />
-                  {doctors && doctors.length} Total Doctors
+                  {doctors && doctors.length} Total Dokter
                 </p>
               </div>
               <Link
                 to="/admin/doctors/create"
                 className="btn btn-primary font-semibold text-lg"
               >
-                Add New
+                Tambahkan Baru
                 <img
                   src="/assets/images/icons/add-white.svg"
                   className="flex sixe-6 shrink-0"
@@ -91,7 +93,7 @@ const DoctorList = () => {
                     <div className="card flex flex-col rounded-[20px] border border-monday-stroke p-5 gap-5">
                       <div className="flex items-center justify-between">
                         <p className="font-medium text-lg text-monday-gray leading-none">
-                          Gender:
+                          Jenis Kelamin:
                         </p>
                         <p className="flex items-center gap-0.5 font-semibold text-lg leading-none">
                           <img
@@ -130,7 +132,7 @@ const DoctorList = () => {
                             </p>
                           </div>
                         </div>
-                        <div className="flex flex-col gap-2 w-[149px]">
+                        {/* <div className="flex flex-col gap-2 w-[149px]">
                           <p className="flex items-center gap-0.5 font-semibold text-lg leading-none">
                             <img
                               src="/assets/images/icons/star-sliced.svg"
@@ -142,7 +144,7 @@ const DoctorList = () => {
                           <p className="font-medium text-lg text-monday-gray leading-none">
                             Rating
                           </p>
-                        </div>
+                        </div> */}
                         <div className="flex flex-col gap-2 w-[149px]">
                           <p className="flex items-center gap-0.5 font-semibold text-lg leading-none">
                             <img
@@ -150,10 +152,10 @@ const DoctorList = () => {
                               className="size-6"
                               alt="icon"
                             />
-                            {doctor.yoe} Years
+                            {doctor.yoe} Tahun
                           </p>
                           <p className="font-medium text-lg text-monday-gray leading-none">
-                            Experience
+                            Pengalaman
                           </p>
                         </div>
                         <div className="flex items-center gap-4">
@@ -161,7 +163,7 @@ const DoctorList = () => {
                             to={`/admin/doctors/details/${doctor.id}`}
                             className="btn btn-primary-opacity min-w-[120px] font-semibold"
                           >
-                            Details
+                            Detail
                           </Link>
                           <Link
                             to={`/admin/doctors/edit/${doctor.id}`}
@@ -172,7 +174,7 @@ const DoctorList = () => {
                               className="flex size-6 shrink-0"
                               alt="icon"
                             />
-                            Edit
+                            Ubah
                           </Link>
                         </div>
                       </div>
@@ -191,10 +193,10 @@ const DoctorList = () => {
                   />
                   <div className="flex flex-col gap-1 items-center text-center">
                     <p className="font-semibold text-monday-gray">
-                      Oops, you don't have any data yet
+                      Ups, Kamu tidak punya data
                     </p>
                     <a href="#" className="font-bold text-monday-blue">
-                      Create Now +
+                      Buat Sekarang
                     </a>
                   </div>
                 </div>

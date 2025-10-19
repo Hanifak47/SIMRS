@@ -24,6 +24,11 @@ const AssignHospitalSpecialist = () => {
     useFetchSpecialists();
   const { mutate: assignSpecialist, isPending } = useAssignHospitalSpecialist();
 
+
+  // console.log(hospital?.doctors.length);
+
+  // console.log(hospital?.specialists.length);
+
   const {
     register,
     handleSubmit,
@@ -75,7 +80,7 @@ const AssignHospitalSpecialist = () => {
           <div className="flex items-center gap-6 h-[102px] bg-white w-full rounded-3xl p-[18px]">
             <div className="flex flex-col gap-2 w-full">
               <h1 className="font-bold text-2xl capitalize">
-                Assign Specialist
+                Tentukan Spesialisasi
               </h1>
               <Link
                 to={`/admin/hospitals/details/${id}`}
@@ -86,7 +91,7 @@ const AssignHospitalSpecialist = () => {
                   className="size-[18px] flex shrink-0"
                   alt="icon"
                 />
-                Hospital Details
+                Detail Rumah Sakit
               </Link>
             </div>
             <div className="flex items-center flex-nowrap gap-3">
@@ -156,7 +161,7 @@ const AssignHospitalSpecialist = () => {
                 alt="icon"
               />
               <p className="font-semibold text-lg text-nowrap">
-                29 Specialists
+                {hospital?.specialists.length} Specialists
               </p>
             </div>
             <div className="flex items-center gap-1 w-full">
@@ -165,7 +170,7 @@ const AssignHospitalSpecialist = () => {
                 className="size-6 flex shrink-0"
                 alt="icon"
               />
-              <p className="font-semibold text-lg text-nowrap">320 Doctors</p>
+              <p className="font-semibold text-lg text-nowrap">{hospital?.doctors.length} Doctors</p>
             </div>
           </section>
           <form
@@ -173,19 +178,18 @@ const AssignHospitalSpecialist = () => {
             className="flex flex-col w-full rounded-3xl p-5 gap-5 bg-white"
           >
             <h2 className="font-semibold text-xl capitalize">
-              Complete the form
+              Lengkapi Formnya
             </h2>
             <div className="flex items-center justify-between">
               <p className="font-medium text-lg text-monday-gray">
-                Choose Specialist
+                Pilih Specialist
               </p>
               <div className="group/errorState flex flex-col gap-2 invalid">
                 <label
-                  className={`group relative rounded-3xl border-[1.5px] focus-within:border-monday-black transition-300 overflow-hidden w-[500px] ${
-                    errors.specialist_id
-                      ? "group-[&.invalid]/errorState:border-monday-red"
-                      : "border-monday-border"
-                  }`}
+                  className={`group relative rounded-3xl border-[1.5px] focus-within:border-monday-black transition-300 overflow-hidden w-[500px] ${errors.specialist_id
+                    ? "group-[&.invalid]/errorState:border-monday-red"
+                    : "border-monday-border"
+                    }`}
                 >
                   <div className="flex items-center pr-4 absolute transform -translate-y-1/2 top-1/2 left-6 border-r-[1.5px] border-monday-border ">
                     <img
@@ -195,7 +199,7 @@ const AssignHospitalSpecialist = () => {
                     />
                   </div>
                   <p className="placeholder font-medium text-lg absolute -translate-y-1/2 left-[81px] top-[25px] group-has-[:invalid]:top-[36px] group-has-[:valid]:text-sm group-has-[:valid]:text-monday-gray group-focus-within:top-[25px] transition-300">
-                    Select Specialist
+                    Pilih Specialist
                   </p>
 
                   <select
@@ -203,7 +207,7 @@ const AssignHospitalSpecialist = () => {
                     {...register("specialist_id")}
                     className="appearance-none w-full h-[72px] font-semibold text-lg outline-none pl-20 pr-6 pb-[14.5px] pt-[32px]"
                   >
-                    <option value="">Select specialist</option>
+                    <option value="">Pilih Specialist</option>
                     {specialists?.map((specialist) => (
                       <option key={specialist.id} value={specialist.id}>
                         {specialist.name}
@@ -230,13 +234,13 @@ const AssignHospitalSpecialist = () => {
                 to={`/admin/hospitals/details/${id}`}
                 className="btn btn-red font-semibold"
               >
-                Cancel
+                Batal
               </Link>
               <button
                 type="submit"
                 className="btn btn-primary font-semibold rounded-full"
               >
-                {isPending ? "Assigning..." : "Assign now"}
+                {isPending ? "Mendaftarkan..." : "Daftarkan"}
               </button>
             </div>
           </form>

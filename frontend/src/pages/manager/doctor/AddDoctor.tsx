@@ -64,7 +64,7 @@ const AddDoctor = () => {
         >
           <div className="flex items-center gap-6 h-[102px] bg-white w-full rounded-3xl p-[18px]">
             <div className="flex flex-col gap-2 w-full">
-              <h1 className="font-bold text-2xl capitalize">Add Doctor</h1>
+              <h1 className="font-bold text-2xl capitalize">Tambahkan Dokter</h1>
               <Link
                 to={"/admin/doctors"}
                 className="flex items-center gap-1 font-semibold text-monday-gray text-lg leading-none"
@@ -74,7 +74,7 @@ const AddDoctor = () => {
                   className="size-[18px] flex shrink-0"
                   alt="icon"
                 />
-                Manage Doctors
+                Manajemen Dokter
               </Link>
             </div>
             <div className="flex items-center flex-nowrap gap-3">
@@ -118,11 +118,11 @@ const AddDoctor = () => {
             className="flex flex-col w-full rounded-3xl p-5 gap-5 bg-white"
           >
             <h2 className="font-semibold text-xl capitalize">
-              Complete the form
+              Selesaikan Formnya
             </h2>
             <div className="flex items-center justify-between">
               <p className="font-medium text-lg text-monday-gray">
-                Upload Image
+                Unggah Gambar
               </p>
               <div className="flex items-center justify-between w-[500px]">
                 <div className="group relative flex size-[100px] rounded-full overflow-hidden items-center justify-center bg-monday-background">
@@ -158,8 +158,8 @@ const AddDoctor = () => {
                   className="btn btn-black w-[152px] font-semibold text-nowrap"
                 >
                   {imagePreview !== "/assets/images/icons/gallery-grey.svg"
-                    ? "Change Photo"
-                    : "Add Photo"}
+                    ? "Ubah Foto"
+                    : "Tambahkan Foto"}
                 </button>
               </div>
             </div>
@@ -172,7 +172,7 @@ const AddDoctor = () => {
             )}
             <div className="flex items-center justify-between">
               <p className="font-medium text-lg text-monday-gray">
-                Doctor Name
+                Nama Dokter
               </p>
               <div className="group/errorState flex flex-col gap-2 invalid">
                 <label className="group relative w-[500px]">
@@ -184,7 +184,7 @@ const AddDoctor = () => {
                     />
                   </div>
                   <p className="placeholder font-semibold text-monday-gray text-sm absolute -translate-y-1/2 left-[81px] top-[25px] group-has-[:placeholder-shown]:text-monday-black group-has-[:placeholder-shown]:text-lg group-has-[:placeholder-shown]:top-[36px] group-focus-within:top-[25px] transition-300">
-                    Enter Doctor Name
+                    Masukkan Nama Dokter
                   </p>
                   <input
                     type="text"
@@ -209,7 +209,7 @@ const AddDoctor = () => {
             </div>
             <div className="flex justify-between">
               <p className="font-medium text-lg text-monday-gray mt-[24.5px]">
-                Doctor About
+                Tentang Dokter
               </p>
               <div className="group/errorState flex flex-col gap-2 invalid">
                 <label
@@ -228,7 +228,7 @@ const AddDoctor = () => {
                   </div>
                   <div className="flex flex-col gap-[6px] pl-4 w-full">
                     <p className="placeholder font-semibold text-monday-gray text-sm group-has-[:placeholder-shown]:text-lg group-has-[:placeholder-shown]:text-monday-black transition-300">
-                      Enter Doctor Description
+                      Masukkan Deskripsi Dokter
                     </p>
                     <textarea
                       className="appearance-none outline-none w-full font-semibold text-lg leading-[160%]"
@@ -250,7 +250,7 @@ const AddDoctor = () => {
             </div>
             <div className="flex items-center justify-between">
               <p className="font-medium text-lg text-monday-gray">
-                Select Hospital
+                Pilih Rumah Sakit
               </p>
               <div className="group/errorState flex flex-col gap-2 invalid">
                 <label
@@ -268,14 +268,14 @@ const AddDoctor = () => {
                     />
                   </div>
                   <p className="placeholder font-medium text-lg absolute -translate-y-1/2 left-[81px] top-[25px] group-has-[:invalid]:top-[36px] group-has-[:valid]:text-sm group-has-[:valid]:text-monday-gray group-focus-within:top-[25px] transition-300">
-                    Select Hospital
+                    Pilih Rumah Sakit
                   </p>
                   <select
                     {...register("hospital_id")}
                     id=""
                     className="appearance-none w-full h-[72px] font-semibold text-lg outline-none pl-20 pr-6 pb-[14.5px] pt-[32px]"
                   >
-                    <option value="">Select</option>
+                    <option value="">Pilih</option>
                     {hospitals?.map((hospital) => (
                       <option key={hospital.id} value={hospital.id}>
                         {hospital.name}
@@ -299,7 +299,7 @@ const AddDoctor = () => {
             </div>
             <div className="flex items-center justify-between">
               <p className="font-medium text-lg text-monday-gray">
-                Select Specialist
+                Pilih Spesialis
               </p>
               <div className="group/errorState flex flex-col gap-2 invalid">
                 <label
@@ -317,7 +317,7 @@ const AddDoctor = () => {
                     />
                   </div>
                   <p className="placeholder font-medium text-lg absolute -translate-y-1/2 left-[81px] top-[25px] group-has-[:invalid]:top-[36px] group-has-[:valid]:text-sm group-has-[:valid]:text-monday-gray group-focus-within:top-[25px] transition-300">
-                    Select Specialist
+                    Pilih Spesialis
                   </p>
                   <select
                     {...register("specialist_id")}
@@ -348,7 +348,7 @@ const AddDoctor = () => {
             </div>
             <div className="flex justify-between">
               <p className="font-medium text-lg text-monday-gray mt-[24.5px]">
-                Choose Gender
+                Pilih Jenis Kelamin
               </p>
               <div className="flex items-center gap-6 w-[500px] h-[56px">
                 <label className="group relative flex items-center h-full py-4 px-5 gap-4 rounded-3xl border-[2px] border-monday-border focus-within:border-monday-black transition-300 w-full">
@@ -360,7 +360,7 @@ const AddDoctor = () => {
                     />
                   </div>
                   <p className="font-semibold text-lg leading-none w-full">
-                    Male
+                    Laki-laki
                   </p>
                   <div className="flex size-4 shrink-0 rounded-full ring-2 ring-monday-black border-[3px] border-white group-has-[:checked]:bg-monday-blue group-has-[:checked]:ring-monday-blue transition-300" />
                   <input
@@ -380,7 +380,7 @@ const AddDoctor = () => {
                     />
                   </div>
                   <p className="font-semibold text-lg leading-none w-full">
-                    Female
+                    Perempuan
                   </p>
                   <div className="flex size-4 shrink-0 rounded-full ring-2 ring-monday-black border-[3px] border-white group-has-[:checked]:bg-monday-blue group-has-[:checked]:ring-monday-blue transition-300" />
                   <input
@@ -401,7 +401,7 @@ const AddDoctor = () => {
               </p>
             )}
             <div className="flex items-center justify-between">
-              <p className="font-medium text-lg text-monday-gray">Experience</p>
+              <p className="font-medium text-lg text-monday-gray">Pengalaman</p>
               <div className="group/errorState flex flex-col gap-2 invalid">
                 <label className="group relative w-[500px]">
                   <div className="flex items-center pr-4 absolute transform -translate-y-1/2 top-1/2 left-6 border-r-[1.5px] border-monday-border ">
@@ -412,7 +412,7 @@ const AddDoctor = () => {
                     />
                   </div>
                   <p className="placeholder font-semibold text-monday-gray text-sm absolute -translate-y-1/2 left-[81px] top-[25px] group-has-[:placeholder-shown]:text-monday-black group-has-[:placeholder-shown]:text-lg group-has-[:placeholder-shown]:top-[36px] group-focus-within:top-[25px] transition-300">
-                    Enter Years of Experience
+                    Masukkan Pengalaman
                   </p>
                   <input
                     type="number"
@@ -427,7 +427,7 @@ const AddDoctor = () => {
                   />
                   <div className="flex items-center h-6 pl-[18px] absolute transform -translate-y-1/2 top-1/2 right-5 border-l-[1.5px] border-monday-border ">
                     <span className="font-semibold text-lg leading-none">
-                      Years
+                      Tahun
                     </span>
                   </div>
                 </label>
@@ -442,13 +442,13 @@ const AddDoctor = () => {
             </div>
             <div className="flex items-center justify-end gap-4">
               <Link to={"/admin/doctors"} className="btn btn-red font-semibold">
-                Cancel
+                Batal
               </Link>
               <button
-                type="submit"
+                type="Simpan"
                 className="btn btn-primary font-semibold rounded-full"
               >
-                {isPending ? "Saving..." : "Save data"}
+                {isPending ? "Menyimpan..." : "Simpan Data"}
               </button>
             </div>
           </form>

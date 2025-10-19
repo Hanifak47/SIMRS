@@ -9,8 +9,10 @@ const DoctorDetails = () => {
   const { id } = useParams<{ id: string }>();
   const { data: doctor, isPending } = useFetchDoctor(Number(id));
 
-  if (isPending) return <p className="p-8">Loading doctor details...</p>;
-  if (!doctor) return <p className="p-8">Doctor not found.</p>;
+  // console.log(doctor);
+
+  if (isPending) return <p className="p-8">Loading detail dokter...</p>;
+  if (!doctor) return <p className="p-8">Dokter tidak ditemukan.</p>;
 
   return (
     <div id="main-container" className="flex flex-1">
@@ -22,7 +24,7 @@ const DoctorDetails = () => {
         >
           <div className="flex items-center gap-6 h-[102px] bg-white w-full rounded-3xl p-[18px]">
             <div className="flex flex-col gap-2 w-full">
-              <h1 className="font-bold text-2xl capitalize">Doctor Details</h1>
+              <h1 className="font-bold text-2xl capitalize">Detail Dokter</h1>
               <Link to={'/admin/doctors'}
                 className="flex items-center gap-1 font-semibold text-monday-gray text-lg leading-none"
               >
@@ -31,7 +33,7 @@ const DoctorDetails = () => {
                   className="size-[18px] flex shrink-0"
                   alt="icon"
                 />
-                Manage Doctors
+                Manajemen Dokter
               </Link>
             </div>
             <div className="flex items-center flex-nowrap gap-3">
@@ -116,10 +118,10 @@ const DoctorDetails = () => {
                   className="size-6"
                   alt="icon"
                 />
-                {doctor.yoe} Years
+                {doctor.yoe} Tahun
               </p>
               <p className="font-medium text-lg text-monday-gray leading-none">
-                Experience
+                Pengalaman
               </p>
             </div>
             <div className="flex flex-col gap-2 w-[134px]">
@@ -136,7 +138,7 @@ const DoctorDetails = () => {
                 {doctor.gender}
               </p>
               <p className="font-medium text-lg text-monday-gray leading-none">
-                Gender
+                Jenis Kelamin
               </p>
             </div>
             <div className="flex items-center gap-4">
@@ -149,21 +151,21 @@ const DoctorDetails = () => {
                   className="flex size-6 shrink-0"
                   alt="icon"
                 />
-                Edit
+                Ubah
               </Link>
             </div>
           </section>
           <section className="flex flex-col gap-6 flex-1 rounded-[20px] p-5 px-0 bg-white">
             <div id="Header" className="flex items-center justify-between px-5">
               <div className="flex flex-col gap-2">
-                <p className="font-semibold text-xl">Latest Transactions</p>
+                <p className="font-semibold text-xl">Transaksi Terakhir</p>
                 <p className="flex items-center gap-1 font-semibold text-monday-gray text-lg leading-none">
                   <img
                     src="/assets/images/icons/stetoscop-grey.svg"
                     className="size-6"
                     alt="icon"
                   />
-                  {doctor.booking_transactions.length} Total Transactions
+                  {doctor.booking_transactions.length} Total Transaksi
                 </p>
               </div>
             </div>
@@ -222,7 +224,7 @@ const DoctorDetails = () => {
                           </p>
                         </div>
                         <p className="badge flex w-[100px] shrink-0 rounded-full py-3 items-center justify-center text-white font-bold text-sm leading-none bg-monday-orange">
-                          Waiting
+                          Menunggu
                         </p>
                       </div>
                       <hr className="border-monday-stroke last:hidden" />
@@ -241,11 +243,11 @@ const DoctorDetails = () => {
                   />
                   <div className="flex flex-col gap-1 items-center text-center">
                     <p className="font-semibold text-monday-gray">
-                      Oops, you don't have any data yet
+                     Ups, tidak ada data
                     </p>
-                    <a href="#" className="font-bold text-monday-blue">
+                    {/* <a href="#" className="font-bold text-monday-blue">
                       Create Now +
-                    </a>
+                    </a> */}
                   </div>
                 </div>
               )}
