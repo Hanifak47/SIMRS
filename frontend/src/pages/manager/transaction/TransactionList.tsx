@@ -9,6 +9,9 @@ const TransactionList = () => {
   if (isPending) return <p> Menunggu Transaksi</p>;
   if (!transactions) return <p> Transaksi Tidak Ditemukan...</p>;
 
+
+  // console.log(transactions);
+
   return (
     <div id="main-container" className="flex flex-1">
       <Sidebar />
@@ -96,11 +99,10 @@ const TransactionList = () => {
                             </p>
                             <p className="flex items-center gap-1 font-medium text-monday-gray text-lg leading-none">
                               <img
-                                src={`${
-                                  transaction.user.gender == "Male"
+                                src={`${transaction.user.gender == "Male"
                                     ? "/assets/images/icons/man-grey.svg"
                                     : "/assets/images/icons/woman-grey.svg"
-                                }`}
+                                  }`}
                                 className="size-6"
                                 alt="icon"
                               />
@@ -132,15 +134,14 @@ const TransactionList = () => {
                         </div>
                         {transaction && (
                           <p
-                            className={`badge flex w-[100px] shrink-0 rounded-full py-3 items-center justify-center text-white font-bold text-sm leading-none ${
-                              transaction.status === "Waiting"
+                            className={`badge flex w-[100px] shrink-0 rounded-full py-3 items-center justify-center text-white font-bold text-sm leading-none ${transaction.status === "Waiting"
                                 ? "bg-monday-orange"
                                 : transaction.status === "Rejected"
-                                ? "bg-monday-red"
-                                : transaction.status === "Approved"
-                                ? "bg-monday-green"
-                                : "bg-gray-400"
-                            }`}
+                                  ? "bg-monday-red"
+                                  : transaction.status === "Approved"
+                                    ? "bg-monday-green"
+                                    : "bg-gray-400"
+                              }`}
                           >
                             {transaction.status}
                           </p>

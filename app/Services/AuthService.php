@@ -3,7 +3,9 @@
 namespace App\Services;
 
 use App\Repositories\AuthRepository;
-use GuzzleHttp\Psr7\UploadedFile;
+// use GuzzleHttp\Psr7\UploadedFile;
+
+use Illuminate\Http\UploadedFile; // ✅ INI BENAR!
 
 class AuthService
 {
@@ -41,6 +43,5 @@ class AuthService
         // disimpan pada folder user
         return $photo->store('user', 'public');
     }
-
 
 }

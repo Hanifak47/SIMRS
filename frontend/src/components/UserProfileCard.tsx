@@ -5,6 +5,8 @@ const UserProfileCard = () => {
   const { user, logout } = useAuth();
   const navigate = useNavigate();
 
+  // console.log(user);
+
   const handleLogout = async () => {
     await logout();
     navigate("/login");
@@ -22,7 +24,7 @@ const UserProfileCard = () => {
         />
       </div>
       <div className="flex flex-col gap-[6px] min-w-[155px] w-fit">
-        <p className="font-semibold text-lg leading-tight">{user.name}</p>
+        <p className="font-semibold text-lg leading-tight">{"user.name"}</p>
         <p className="flex items-center gap-1 font-semibold text-monday-gray text-lg leading-none">
           <img
             src="/assets/images/icons/user-grey.svg"

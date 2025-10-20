@@ -69,39 +69,39 @@ const Sidebar = () => {
           iconBlack: "/assets/images/icons/profile-2user-black.svg",
           iconBlue: "/assets/images/icons/profile-2user-blue.svg",
         },
-        {
-          label: "Manage User",
-          accordion: true,
-          children: [
-            {
-              label: "Role",
-              path: "/admin/roles",
-              // active: [
-              //   "/admin/roles",
-              // ],
-              iconBlack: "/assets/images/icons/profile-tick-black.svg",
-              iconBlue: "/assets/images/icons/profile-tick-blue.svg",
-            },
-            {
-              label: "Pengguna",
-              path: "/admin/users",
-              // active: [
-              //   "/admin/users",
-              // ],
-              iconBlack: "/assets/images/icons/profile-black.svg",
-              iconBlue: "/assets/images/icons/profile-blue.svg",
-            },
-          ],
-        },
-        {
-          label: "Pengaturan",
-          path: "/admin/settings",
-          // active: [
-          //   "/admin/settings",
-          // ],
-          iconBlack: "/assets/images/icons/setting-black.svg",
-          iconBlue: "/assets/images/icons/setting-black.svg",
-        },
+        // {
+        //   label: "Manage User",
+        //   accordion: true,
+        //   children: [
+        //     {
+        //       label: "Role",
+        //       path: "/admin/roles",
+        //       // active: [
+        //       //   "/admin/roles",
+        //       // ],
+        //       iconBlack: "/assets/images/icons/profile-tick-black.svg",
+        //       iconBlue: "/assets/images/icons/profile-tick-blue.svg",
+        //     },
+        //     {
+        //       label: "Pengguna",
+        //       path: "/admin/users",
+        //       // active: [
+        //       //   "/admin/users",
+        //       // ],
+        //       iconBlack: "/assets/images/icons/profile-black.svg",
+        //       iconBlue: "/assets/images/icons/profile-blue.svg",
+        //     },
+        //   ],
+        // },
+        // {
+        //   label: "Pengaturan",
+        //   path: "/admin/settings",
+        //   // active: [
+        //   //   "/admin/settings",
+        //   // ],
+        //   iconBlack: "/assets/images/icons/setting-black.svg",
+        //   iconBlue: "/assets/images/icons/setting-black.svg",
+        // },
       ],
     },
   ];

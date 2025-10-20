@@ -25,6 +25,8 @@ class AuthController extends Controller
 
     public function register(RegisterRequest $request)
     {
+
+        // dd($request);
         $user = $this->authService->register($request->validated());
         return response()->json(['Message' => 'Pengguna berhasil registrasi', 'user' => $user], 201);
     }

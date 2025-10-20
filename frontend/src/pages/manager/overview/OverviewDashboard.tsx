@@ -21,6 +21,16 @@ function OverviewDashboard() {
   const { data: specialists } = useFetchSpecialists();
   const { data: hospitals } = useFetchHospitals();
 
+  let totalRev = 0;
+  if (transactions) {
+    transactions.forEach((transaction, index) => {
+      if (transaction.status == "Approved") {
+        totalRev += transaction.grand_total;
+      }
+    });
+  }
+
+
   // proses format
   const sortedSpecialists = getLatestDateString(specialists, "updated_at");
   const urut_specialist = sortedSpecialists
@@ -114,11 +124,13 @@ function OverviewDashboard() {
                     alt="icon"
                   />
                 </div>
-                <p className="font-medium text-lg text-white">Total Pendapatan</p>
+                <p className="font-medium text-lg text-white">Total Pendapatan (Hanya Yang Ter ACC)</p>
               </div>
               <div className="flex flex-col gap-3">
                 <p className="font-bold text-[36px] text-white">
-                  Rp {totalRevenue.toLocaleString("id")}
+                  {/* Rp {totalRevenue.toLocaleString("id")} */}
+
+                  Rp {totalRev}
                 </p>
                 <hr className="border-monday-stroke/20" />
                 <p className="font-medium text-lg text-white/60">

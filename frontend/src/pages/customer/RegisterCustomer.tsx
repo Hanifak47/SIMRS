@@ -59,10 +59,10 @@ function RegisterCustomer() {
       >
         <div className="flex flex-col w-full pt-[60px] p-5 bg-white gap-2">
           <p className="font-semibold text-2xl capitalize">
-            Hey 🙌, Welcome aboard!
+            Hey 🙌, Selamat Datang!
           </p>
           <p className="font-medium text-monday-gray leading-none">
-            Create your account to continue!
+            Buat Akun Untuk Melanjutkan!
           </p>
         </div>
         {errors.root && (
