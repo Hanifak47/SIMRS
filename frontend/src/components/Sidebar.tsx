@@ -1,6 +1,28 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 
+
+// Tipe untuk Item yang tidak memiliki children (link normal atau sub-item)
+interface BaseItem {
+  label: string;
+  path: string;
+  iconBlack: string;
+  iconBlue: string;
+  // active?: string[]; // Uncomment jika Anda ingin menggunakan active path yang dikomentari
+}
+
+// Tipe untuk item Sidebar (bisa BaseItem, atau bisa menjadi accordion)
+interface SidebarItem extends BaseItem {
+  accordion?: boolean; // Tipe opsional (bisa ada atau tidak ada)
+  children?: BaseItem[]; // Tipe opsional, array dari BaseItem
+}
+
+// Tipe untuk seluruh struktur menu
+interface SidebarSection {
+  section: string;
+  items: SidebarItem[];
+}
+
 const Sidebar = () => {
   const location = useLocation();
   const [openAccordions, setOpenAccordions] = useState<string[]>([]);
@@ -13,7 +35,7 @@ const Sidebar = () => {
     );
   };
 
-  const sidebarMenus = [
+  const sidebarMenus: SidebarSection[] = [
     {
       section: "Main Menu",
       items: [

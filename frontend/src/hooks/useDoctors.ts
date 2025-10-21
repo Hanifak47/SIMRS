@@ -59,7 +59,11 @@ export const useCreateDoctor = () => {
       formData.append("yoe", String(payload.yoe));
       formData.append("specialist_id", String(payload.specialist_id));
       formData.append("hospital_id", String(payload.hospital_id));
-      formData.append("photo", payload.photo);
+
+      if (payload.photo) {
+        formData.append("photo", payload.photo);
+      }
+      // formData.append("photo", payload.photo);
 
       const response = await apiClient.post("/doctors", formData, {
         headers: { "Content-Type": "multipart/form-data" },

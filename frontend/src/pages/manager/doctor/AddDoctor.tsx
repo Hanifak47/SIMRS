@@ -445,7 +445,7 @@ const AddDoctor = () => {
                 Batal
               </Link>
               <button
-                type="Simpan"
+                type="submit"
                 className="btn btn-primary font-semibold rounded-full"
               >
                 {isPending ? "Menyimpan..." : "Simpan Data"}

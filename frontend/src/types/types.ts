@@ -12,8 +12,10 @@ export interface User {
   photo: string;
   phone: string;
   gender: string;
-  roles?: Role[];
+  roles?: (Role | string)[];
+  // roles: string;
   token?: string;
+  role_names?: string[];
 }
 
 export interface Specialist {
@@ -21,10 +23,11 @@ export interface Specialist {
   name: string;
   price: number;
   about: string;
-  photo: string;
+  photo?: string;
   doctors_count: number;
   doctors: Doctor[];
   hospitals_count: number;
+  updated_at: string;
   hospitals: Hospital[];
 }
 
@@ -35,9 +38,10 @@ export interface Doctor {
   specialist_id: number;
   hospital_id: number;
   about: string;
-  photo: string;
+  photo?: string;
   gender: string;
   specialist: Specialist;
+  updated_at: string;
   hospital: Hospital;
   booking_transactions: BookingTransaction[];
 }
@@ -52,6 +56,7 @@ export interface BookingTransaction {
   doctor_id: number;
   sub_total: number;
   tax_total: number;
+  updated_at: string;
   grand_total: number;
   proof: string;
 }
@@ -60,7 +65,7 @@ export interface CreateSpecialistPayload {
   name: string;
   price: string;
   about: string;
-  photo: File;
+  photo?: File;
 }
 
 export interface CreateTransactionPayload {
@@ -86,6 +91,7 @@ export interface Hospital {
   phone: string;
   specialists_count: number;
   doctors_count: number;
+  updated_at: string;
   specialists: Specialist[];
   doctors: Doctor[];
 }
@@ -97,7 +103,7 @@ export interface CreateHospitalPayload {
   city: string;
   post_code: string;
   phone: string;
-  photo: File;
+  photo?: File;
 }
 
 export interface CreateDoctorPayload {
@@ -107,7 +113,7 @@ export interface CreateDoctorPayload {
   gender: string;
   specialist_id: number;
   hospital_id: number;
-  photo: File;
+  photo?: File;
 }
 
 export interface DeleteHospitalSpecialistPayload {
@@ -127,7 +133,7 @@ export interface BookingInfo {
 export interface AssignHospitalSpecialistPayload {
   hospital_id: number;
   specialist_id: number;
-} 
+}
 
 export interface AuthProviderProps {
   children: ReactNode;

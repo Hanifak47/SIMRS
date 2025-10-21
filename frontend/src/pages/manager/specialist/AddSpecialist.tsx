@@ -171,7 +171,8 @@ const AddSpecialist = () => {
             {errors.photo && (
               <p className="text-red-500">
                 <span className="font-semibold text-lg text-monday-red leading-none group-[&.invalid]/errorState:block">
-                  {errors.photo.message}
+                    {/* {errors.photo.message} */}
+                  {String(errors.photo.message)}
                 </span>
               </p>
             )}

@@ -39,7 +39,9 @@ export const useCreateHospital = () => {
     mutationFn: async (payload: CreateHospitalPayload) => {
       const formData = new FormData();
       formData.append("name", payload.name);
-      formData.append("photo", payload.photo);
+      if (payload.photo) {
+        formData.append("photo", payload.photo);
+      }
       formData.append("about", payload.about);
       formData.append("address", payload.address);
       formData.append("city", payload.city);

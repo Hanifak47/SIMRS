@@ -23,7 +23,7 @@ function OverviewDashboard() {
 
   let totalRev = 0;
   if (transactions) {
-    transactions.forEach((transaction, index) => {
+    transactions.forEach((transaction) => {
       if (transaction.status == "Approved") {
         totalRev += transaction.grand_total;
       }
@@ -53,8 +53,8 @@ function OverviewDashboard() {
     ? formatDate2(sortedHospitals) // Panggil formatDate2 HANYA jika sortedSpecialists adalah string
     : 'Loading...'; // Nilai default saat sortedSpecialists adalah undefined
 
-  const totalRevenue =
-    transactions?.reduce((acc, tx) => acc + tx.grand_total, 0) || 0;
+  // const totalRevenue =
+  //   transactions?.reduce((acc, tx) => acc + tx.grand_total, 0) || 0;
 
   return (
     <div id="main-container" className="flex flex-1">

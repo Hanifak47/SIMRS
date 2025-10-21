@@ -5,7 +5,7 @@ namespace App\Services;
 use App\Repositories\AuthRepository;
 // use GuzzleHttp\Psr7\UploadedFile;
 
-use Illuminate\Http\UploadedFile; // ✅ INI BENAR!
+use Illuminate\Http\UploadedFile;
 
 class AuthService
 {
