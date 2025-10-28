@@ -10,7 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('booking_transactions', function (Blueprint $table) {
+        Schema::create('booking_transactions', function (Blueprint $table) { // phpcs:ignore PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket
             $table->id();
             // maksud constrained adalah mereferensikan tabel yg sesuai, laravel berasumsi bahwa user_id mereferensikan dari tabel user dan field id pada tabel tersebut  
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();

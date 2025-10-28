@@ -10,7 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('doctors', function (Blueprint $table) {
+        Schema::create('doctors', function (Blueprint $table) { // phpcs:ignore PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket
             $table->id();
             $table->string('name')->index();
             $table->string('photo');

@@ -55,6 +55,7 @@ class AuthRepository
 
     public function tokenLogin(array $data)
     {
+        // dd($data);
         // Attempt authentication using email and password
         if (!Auth::attempt(['email' => $data['email'], 'password' => $data['password']])) {
             // Return 401 Unauthorized if credentials are invalid

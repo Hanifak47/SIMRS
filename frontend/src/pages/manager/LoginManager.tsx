@@ -29,6 +29,8 @@ const LoginManager = () => {
 
     try {
       await login(email, password);
+      console.log(email);
+      console.log(password);
       if (user && user.roles?.includes("manager")) {
         navigate("/admin/overview");
       }

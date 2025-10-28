@@ -10,7 +10,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('hospital_specialists', function (Blueprint $table) {
+        Schema::create('hospital_specialists', function (Blueprint $table) { // phpcs:ignore PEAR.Functions.FunctionCallSignature.ContentAfterOpenBracket
             $table->id();
             $table->foreignId('hospital_id')->constrained()->cascadeOnDelete();
             $table->foreignId('specialist_id')->constrained()->cascadeOnDelete();
